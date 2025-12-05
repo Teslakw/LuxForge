@@ -27,7 +27,7 @@ export default function RootLayout ({
           rel='stylesheet'
         />
       </head>
-      <body className='bg-black text-white font-sans antialiased selection:bg-white selection:text-black'>
+      <body className='bg-black text-white font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden'>
         <Navbar />
         {children}
       </body>
