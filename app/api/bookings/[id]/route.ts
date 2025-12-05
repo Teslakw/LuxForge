@@ -44,6 +44,27 @@ export async function PATCH (
 ) {
   const { id } = await context.params
   const payload = await req.json().catch(() => ({}))
+  const external = process.env.EXTERNAL_API_BASE
+  if (external) {
+    try {
+      const base = external.endsWith('/') ? external.slice(0, -1) : external
+      // Stringify parts if present
+      const patchPayload =
+        typeof (payload as any).parts !== 'undefined' &&
+        Array.isArray((payload as any).parts)
+          ? { ...payload, parts: JSON.stringify((payload as any).parts) }
+          : payload
+      const res = await fetch(`${base}/id/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(patchPayload)
+      })
+      const data = await res.json().catch(() => ({}))
+      return NextResponse.json(data, { status: res.status })
+    } catch {
+      // fallback ke KV/JSON
+    }
+  }
   const kv = await getKV()
   const current = kv
     ? Array.isArray(await kv.get('luxforge:bookings'))
@@ -73,6 +94,17 @@ export async function DELETE (
   context: { params: Promise<{ id: string }> }
 ) {
   const { id } = await context.params
+  const external = process.env.EXTERNAL_API_BASE
+  if (external) {
+    try {
+      const base = external.endsWith('/') ? external.slice(0, -1) : external
+      const res = await fetch(`${base}/id/${id}`, { method: 'DELETE' })
+      const data = await res.json().catch(() => ({ ok: res.ok }))
+      return NextResponse.json(data, { status: res.status })
+    } catch {
+      // fallback ke KV/JSON
+    }
+  }
   const kv = await getKV()
   const current = kv
     ? Array.isArray(await kv.get('luxforge:bookings'))

@@ -42,6 +42,31 @@ async function writeJSON (list: any[]) {
 }
 
 export async function GET () {
+  const external = process.env.EXTERNAL_API_BASE
+  if (external) {
+    try {
+      const base = external.endsWith('/') ? external.slice(0, -1) : external
+      const res = await fetch(base, { cache: 'no-store' })
+      const data = await res.json().catch(() => [])
+      const list = Array.isArray(data) ? data : []
+      // Normalisasi parts agar array
+      const normalized = list.map((row: any) => {
+        let parts: any = row.parts
+        if (typeof parts === 'string') {
+          try {
+            parts = JSON.parse(parts)
+          } catch {
+            parts = parts ? [parts] : []
+          }
+        }
+        if (!Array.isArray(parts)) parts = []
+        return { ...row, parts }
+      })
+      return NextResponse.json(normalized)
+    } catch {
+      // fallback ke mode berikutnya
+    }
+  }
   const kv = await getKV()
   if (kv) {
     const data = await kv.get('luxforge:bookings')
@@ -84,6 +109,26 @@ export async function POST (req: NextRequest) {
         { error: 'Missing required fields' },
         { status: 400 }
       )
+    }
+
+    const external = process.env.EXTERNAL_API_BASE
+    if (external) {
+      try {
+        const base = external.endsWith('/') ? external.slice(0, -1) : external
+        // Stringify parts untuk Sheet.best
+        const payload = Array.isArray(booking.parts)
+          ? { ...booking, parts: JSON.stringify(booking.parts) }
+          : booking
+        const res = await fetch(base, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        const result = await res.json().catch(() => booking)
+        return NextResponse.json(result, { status: res.status })
+      } catch {
+        // fallback ke KV/JSON
+      }
     }
 
     const kv = await getKV()
