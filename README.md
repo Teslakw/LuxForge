@@ -1,3 +1,13 @@
+# LuxForge
+
+This is a premium Next.js app for a luxury car configurator and showroom.
+
+## Admin Access
+
+- Username: `admin`
+- Password: Stored privately and not shown on the login page.
+
+For coursework/presentation, the current password is maintained in project notes to avoid leaking it in UI. Refer to `admin-password.md` for details.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

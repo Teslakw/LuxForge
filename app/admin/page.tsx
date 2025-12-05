@@ -32,7 +32,7 @@ type Booking = {
 }
 
 type Creds = { username: string; password: string }
-const VALID: Creds = { username: 'admin', password: 'admin 123' }
+const VALID: Creds = { username: 'admin', password: 'parta 2005' }
 
 export default function AdminPage () {
   const [auth, setAuth] = useState<Creds>({ username: '', password: '' })
@@ -57,7 +57,6 @@ export default function AdminPage () {
     }
   }
 
-  // Load bookings from API (fallback to localStorage if API unavailable)
   useEffect(() => {
     const load = async () => {
       setLoading(true)
@@ -189,12 +188,9 @@ export default function AdminPage () {
               Access Dashboard
             </button>
           </form>
-          <p className='text-[10px] text-gray-500 mt-4 text-center'>
-            Credential: admin / admin 123
-          </p>
+          {/* Password hint intentionally omitted to avoid disclosure */}
         </div>
       )}
-
       {loggedIn && (
         <>
           <div className='flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6'>
@@ -260,9 +256,6 @@ export default function AdminPage () {
                         {/* CLIENT IDENTITY */}
                         <td className='p-6 align-top'>
                           <div className='flex items-start gap-3'>
-                            <div className='bg-white/10 p-2 rounded-full text-gray-400'>
-                              <User size={16} />
-                            </div>
                             <div>
                               <div className='font-bold text-white uppercase text-sm tracking-wide'>
                                 {b.customerName}
