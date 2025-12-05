@@ -12,7 +12,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     image:
-      'https://images.unsplash.com/photo-1566008885218-90abf9200ddb?q=80&w=2000',
+      'https://www.autoblog.com/.image/c_fill,w_1200,h_675,g_faces:center/MjA5MDg5NzM3NjA1NTIzMDU2/2024_nissan_gt-r.jpg',
     heading: 'Beyond Luxury',
     subheading: 'Curated supercars, tailored for connoisseurs'
   },
@@ -24,7 +24,7 @@ const slides: Slide[] = [
   },
   {
     image:
-      'https://img.merahputih.com/media/55/bc/e0/55bce09c0a0081b69165dfcb94974de2.jpg',
+      'https://imgcdnblog.carbay.com/wp-content/uploads/2020/12/31180127/Koenigsegg-Regera-auction-RM-Sothebys-3.jpg',
     heading: 'Rare & Exclusive',
     subheading: 'Reserve only the finest machines'
   },
@@ -59,14 +59,14 @@ export default function Home () {
                 i === index ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <div className='absolute inset-0 scale-105 animate-[kenburns_12s_ease-in-out_infinite]'>
+              <div className='absolute inset-0 scale-[1.03] animate-[kenburns_16s_ease-in-out_infinite] will-change-transform'>
                 <img
                   src={s.image}
                   alt={s.heading}
-                  className='w-full h-full object-cover'
+                  className='w-full h-full object-cover brightness-[0.95]'
                 />
               </div>
-              <div className='absolute inset-0 bg-linear-to-b from-black/60 via-black/30 to-black/60' />
+              <div className='absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/70 backdrop-blur-[1px]' />
               {/* Text overlay per slide: varied placement + gold accent */}
               <div
                 className={`absolute z-10 ${
@@ -78,12 +78,12 @@ export default function Home () {
                 }`}
               >
                 <div
-                  className={`inline-block max-w-lg px-4 md:px-6 py-3 md:py-4 rounded-lg bg-black/40 backdrop-blur-sm`}
+                  className={`inline-block max-w-lg px-4 md:px-6 py-3 md:py-4 rounded-lg bg-black/40 backdrop-blur-sm animate-fade-in-slow`}
                 >
                   <h1 className='text-4xl md:text-6xl font-serif text-white tracking-tight mb-3'>
                     {s.heading}
                   </h1>
-                  <div className='h-0.5 w-24 md:w-32 bg-[#d4af37]/80 mx-auto md:mx-0 mb-3' />
+                  <div className='h-0.5 w-24 md:w-32 bg-[#d4af37]/90 mx-auto md:mx-0 mb-3 animate-gold-glow' />
                   <p className='text-sm md:text-base text-gray-200'>
                     {s.subheading}
                   </p>
@@ -94,7 +94,7 @@ export default function Home () {
         </div>
 
         {/* Top-right CTA */}
-        <div className='absolute top-6 right-6 z-10'>
+        <div className='absolute top-6 right-6 z-10 animate-fade-in'>
           <Link href='/showroom' className='inline-block'>
             <span className='px-4 py-2 bg-white/90 text-black text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-white transition'>
               View Collection
@@ -104,21 +104,21 @@ export default function Home () {
       </section>
 
       {/* Content below slider: full-image luxury panels with overlay */}
-      <section className='text-white'>
+      <section className='text-white animate-fade-in-slow'>
         {/* Section 2 */}
-        <div className='relative w-screen h-[70vh] md:h-[80vh] overflow-hidden'>
+        <div className='relative w-screen h-[70vh] md:h-[80vh] overflow-hidden animate-fade-in-slow'>
           <img
             src='https://lh6.googleusercontent.com/savwFHgzycqHy265FBpFHOxfpPGAabVWpbXuktyIfusRz9epxayL6o9GYrGqLMoKnF3Y9iyhg52E2O9GqxJJ0U51csL3fmhTs7E3WrlcWb0rwumz94xg6bIqBYxAZDWKEWS4sNYPQdTlW6i6PE7tw44'
             alt='Concierge'
-            className='absolute inset-0 w-full h-full object-cover'
+            className='absolute inset-0 w-full h-full object-cover opacity-95'
           />
-          <div className='absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60' />
+          <div className='absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/70 backdrop-blur-[1px]' />
           <div className='absolute bottom-16 left-8 md:left-16 max-w-xl'>
-            <div className='bg-black/40 backdrop-blur-sm p-6 rounded-xl'>
+            <div className='bg-black/40 backdrop-blur-sm p-6 rounded-xl animate-fade-in-slow'>
               <h2 className='text-3xl md:text-4xl font-serif mb-3'>
                 Private Concierge
               </h2>
-              <div className='h-0.5 w-20 bg-[#d4af37] mb-4' />
+              <div className='h-0.5 w-20 bg-[#d4af37] mb-4 animate-gold-glow' />
               <p className='text-gray-200 mb-6'>
                 Experience a tailored acquisition journey: from configuration to
                 allocation, our concierge ensures every detail meets your
@@ -142,20 +142,20 @@ export default function Home () {
         </div>
 
         {/* Section 3 */}
-        <div className='relative w-screen h-[70vh] md:h-[80vh] overflow-hidden'>
+        <div className='relative w-screen h-[70vh] md:h-[80vh] overflow-hidden animate-fade-in-slow'>
           <img
             src='https://cdn.motor1.com/images/mgl/JOBqOJ/s1/phantom-scintilla-private-collection---0.webp'
             alt='Rarity'
-            className='absolute inset-0 w-full h-full object-cover'
+            className='absolute inset-0 w-full h-full object-cover opacity-95'
           />
-          <div className='absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60' />
+          <div className='absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/70 backdrop-blur-[1px]' />
           <div className='absolute top-20 right-8 md:right-16 max-w-xl text-right'>
-            <div className='bg-black/40 backdrop-blur-sm p-6 rounded-xl inline-block text-left md:text-right'>
+            <div className='bg-black/40 backdrop-blur-sm p-6 rounded-xl inline-block text-left md:text-right animate-fade-in-slow'>
               <h2 className='text-3xl md:text-4xl font-serif mb-3'>
                 Curated Rarity
               </h2>
-              <div className='ml-auto h-0.5 w-20 bg-[#d4af37] mb-4' />
-              <div className='ml-auto h-0.5 w-20 bg-[#d4af37] mb-4' />
+              <div className='ml-auto h-0.5 w-20 bg-[#d4af37] mb-4 animate-gold-glow' />
+              <div className='ml-auto h-0.5 w-20 bg-[#d4af37] mb-4 animate-gold-glow' />
               <p className='text-gray-200 mb-6'>
                 Our selection emphasizes provenance, specification, and rarity —
                 presenting only the most desirable supercars.
@@ -181,7 +181,9 @@ export default function Home () {
         </div>
       </section>
 
-      <Footer />
+      <div className='animate-fade-in'>
+        <Footer />
+      </div>
     </div>
   )
 }

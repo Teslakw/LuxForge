@@ -57,46 +57,64 @@ h3,
 /* Premium animation utilities */
 @keyframes fade-in {
   from {
-    opacity: 0
-  }
-
-  to {
-    opacity: 1
-  }
-}
-
-@keyframes slide-up {
-  from {
     opacity: 0;
-    transform: translateY(12px)
+    transform: translateY(8px);
+
+    to {
+      opacity: 1
+    }
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0)
-  }
-}
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px)
+    }
 
-@keyframes width-in {
-  from {
-    width: 0
+    to {
+      opacity: 1;
+      transform: translateY(0)
+    }
   }
 
-  to {
-    width: 6rem
-  }
-}
+  @keyframes width-in {
+    from {
+      width: 0
+    }
 
-@keyframes card-in {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(0.98)
+    to {
+      width: 6rem
+    }
+  }
+
+  @keyframes card-in {
+    from {
+      opacity: 0;
+    }
   }
 
   to {
     opacity: 1;
     transform: translateY(0) scale(1)
   }
+
+  animation: fadeIn 0.6s ease-out both;
+}
+
+.animate-fade-in-slow {
+  animation: fadeIn 1.2s ease-out both;
+}
+
+.animate-gold-glow {
+  position: relative;
+}
+
+.animate-gold-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+  border-radius: 2px;
 }
 
 .animate-fade-in {
