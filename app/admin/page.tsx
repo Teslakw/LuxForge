@@ -17,7 +17,7 @@ type Booking = {
   carName: string
   color: string
   interiorColor?: string // Field baru dari checkout
-  parts?: string[] // Array string dari checkout
+  parts?: string[] | string // Bisa array dari checkout atau string dari Sheet.best
   // Legacy fields (optional support untuk data lama)
   wheelModel?: string
   tireSpec?: string
@@ -296,31 +296,38 @@ export default function AdminPage () {
 
                                 {/* Parts List from Array (guard for strings) */}
                                 {(() => {
-                                  const safeParts = Array.isArray(b.parts)
-                                    ? b.parts
-                                    : typeof b.parts === 'string'
-                                    ? b.parts
+                                  const raw = b.parts as
+                                    | string[]
+                                    | string
+                                    | undefined
+                                  const safeParts: string[] = Array.isArray(raw)
+                                    ? raw
+                                    : typeof raw === 'string'
+                                    ? raw
                                         .split(',')
                                         .map(s => s.trim())
                                         .filter(Boolean)
                                     : []
-                                  return safeParts.length > 0 ? (
+                                  if (safeParts.length === 0) return null
+                                  return (
                                     <div className='mt-2 pt-2 border-t border-white/5'>
                                       <span className='text-[10px] text-gray-500 uppercase tracking-widest mb-1 block'>
                                         Selected Upgrades:
                                       </span>
                                       <div className='flex flex-wrap gap-1 max-w-xs whitespace-normal'>
-                                        {safeParts.map((part, i) => (
-                                          <span
-                                            key={i}
-                                            className='inline-block px-1.5 py-0.5 bg-white/10 border border-white/10 rounded text-[9px] text-gray-300 uppercase tracking-wider'
-                                          >
-                                            {part.replace(/_/g, ' ')}
-                                          </span>
-                                        ))}
+                                        {safeParts.map(
+                                          (part: string, i: number) => (
+                                            <span
+                                              key={i}
+                                              className='inline-block px-1.5 py-0.5 bg-white/10 border border-white/10 rounded text-[9px] text-gray-300 uppercase tracking-wider'
+                                            >
+                                              {part.replace(/_/g, ' ')}
+                                            </span>
+                                          )
+                                        )}
                                       </div>
                                     </div>
-                                  ) : null
+                                  )
                                 })()}
                               </div>
                             </div>
