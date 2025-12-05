@@ -42,7 +42,10 @@ async function writeJSON (list: any[]) {
 }
 
 export async function GET () {
-  const external = process.env.EXTERNAL_API_BASE
+  const SHEET_BASE =
+    process.env.EXTERNAL_API_BASE ||
+    'https://api.sheetbest.com/sheets/10dc2a5e-e4cf-4d3d-9112-2ba60317cb83'
+  const external = SHEET_BASE
   if (external) {
     try {
       const base = external.endsWith('/') ? external.slice(0, -1) : external
@@ -111,7 +114,10 @@ export async function POST (req: NextRequest) {
       )
     }
 
-    const external = process.env.EXTERNAL_API_BASE
+    const SHEET_BASE =
+      process.env.EXTERNAL_API_BASE ||
+      'https://api.sheetbest.com/sheets/10dc2a5e-e4cf-4d3d-9112-2ba60317cb83'
+    const external = SHEET_BASE
     if (external) {
       try {
         const base = external.endsWith('/') ? external.slice(0, -1) : external
