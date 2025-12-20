@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { CAR_DATABASE } from '@/data/cars'
 import AdvancedColorPicker from '@/components/AdvancedColorPicker'
-import { ArrowLeft, ShoppingBag, Check } from 'lucide-react'
+import { ArrowLeft, ShoppingBag, Check, Save } from 'lucide-react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 
@@ -243,7 +243,7 @@ const PART_SECTIONS = [
    - selected state highlight border + check icon
    - clicking sets selected id for that section
    ========================= */
-function PartSelectionSection ({
+function PartSelectionSection({
   title,
   options,
   selected,
@@ -255,43 +255,42 @@ function PartSelectionSection ({
   onSelect: (id: string) => void
 }) {
   return (
-    <section className='mt-14 w-full px-6 lg:px-10'>
-      <h3 className='uppercase text-sm tracking-wide font-semibold border-b border-white/10 pb-3 mb-6 text-white/80'>
-        {title}
-      </h3>
+    <section className='mb-12'>
+      <div className='flex items-center gap-4 mb-6 border-b border-white/10 pb-4'>
+        <div className='w-1 h-4 bg-gold' />
+        <h3 className='font-industrial font-bold uppercase text-sm tracking-[0.2em] text-white'>
+          {title}
+        </h3>
+      </div>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <div className='grid grid-cols-2 lg:grid-cols-4 gap-4'>
         {options.map(opt => (
           <div
             key={opt.id}
             role='button'
             onClick={() => onSelect(opt.id)}
-            className={`relative cursor-pointer overflow-hidden transition-all border ${
-              selected === opt.id ? 'border-white' : 'border-white/10'
-            }`}
-            style={{ borderRadius: 0 }}
+            className={`group relative cursor-pointer overflow-hidden transition-all duration-300 border ${selected === opt.id ? 'border-gold opacity-100' : 'border-white/5 opacity-60 hover:opacity-100 hover:border-white/20'
+              }`}
           >
-            <div style={{ width: '100%', height: 176, position: 'relative' }}>
+            <div className='aspect-square relative grayscale group-hover:grayscale-0 transition-all duration-500'>
               <img
                 src={opt.image}
                 alt={opt.name}
-                style={{
-                  width: '100%',
-                  height: '176px',
-                  objectFit: 'cover',
-                  display: 'block'
-                }}
+                className='w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700'
                 loading='lazy'
               />
+              <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80' />
             </div>
 
-            <div className='p-3 bg-neutral-900 text-center uppercase tracking-wide text-sm'>
-              {opt.name}
+            <div className='absolute bottom-0 left-0 w-full p-3'>
+              <span className={`text-[10px] font-bold uppercase tracking-wider block ${selected === opt.id ? 'text-gold' : 'text-gray-300'}`}>
+                {opt.name}
+              </span>
             </div>
 
             {selected === opt.id && (
-              <div className='absolute top-3 right-3 bg-white text-black p-1'>
-                <Check size={16} />
+              <div className='absolute top-2 right-2 bg-gold text-black p-1 shadow-lg shadow-gold/20'>
+                <Check size={12} strokeWidth={3} />
               </div>
             )}
           </div>
@@ -306,7 +305,7 @@ function PartSelectionSection ({
    - dynamic state based on PART_SECTIONS keys
    - preview svg reacts to a subset of parts
    ========================= */
-export default function ConfigurePage () {
+export default function ConfigurePage() {
   const params = useParams()
   const router = useRouter()
 
@@ -350,7 +349,7 @@ export default function ConfigurePage () {
   if (!car)
     return (
       <div className='min-h-screen flex items-center justify-center text-white bg-black'>
-        <p className='animate-pulse'>Memuat Data Kendaraan...</p>
+        <p className='animate-pulse font-industrial tracking-widest'>LOADING ASSETS...</p>
       </div>
     )
 
@@ -379,33 +378,40 @@ export default function ConfigurePage () {
   }
 
   return (
-    <div className='min-h-screen bg-neutral-950 text-white pt-24'>
-      <div className='flex flex-col lg:flex-row'>
-        {/* PREVIEW AREA */}
-        <div className='lg:w-3/4 relative bg-[#050505] flex items-center justify-center p-6 md:p-12 overflow-hidden'>
-          {/* subtle grid background */}
+    <div className='min-h-screen bg-[#050505] text-white flex flex-col'>
+      {/* Top Bar for Navigation */}
+      <div className='fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between pointer-events-none'>
+        <div className='pointer-events-auto'>
+          <Link
+            href='/showroom'
+            className='flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur border border-white/10 hover:bg-gold hover:text-black hover:border-gold transition-colors text-[10px] font-bold uppercase tracking-[0.2em]'
+          >
+            <ArrowLeft size={12} /> Return
+          </Link>
+        </div>
+      </div>
+
+      <div className='flex flex-col lg:flex-row flex-1 pt-0'>
+        {/* PREVIEW AREA - FIXED ON DESKTOP */}
+        <div className='lg:w-3/5 lg:fixed lg:h-screen lg:top-0 lg:left-0 relative bg-[#080808] flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden border-r border-white/5'>
+          {/* Spotlight Effect */}
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.03] rounded-full blur-3xl pointer-events-none' />
+
+          {/* Subtle Industrial Grid */}
           <div
-            className='absolute inset-0 pointer-events-none'
+            className='absolute inset-0 pointer-events-none opacity-10'
             style={{
-              opacity: 0.12,
               backgroundImage:
-                'linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg,#222 1px,transparent 1px)',
-              backgroundSize: '40px 40px'
+                'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)',
+              backgroundSize: '100px 100px'
             }}
           />
 
-          <Link
-            href='/showroom'
-            className='absolute top-8 left-8 z-10 flex items-center text-xs font-bold uppercase tracking-widest text-white/50 hover:text-white'
-          >
-            <ArrowLeft size={16} className='mr-2' /> Back to Collection
-          </Link>
-
-          <div className='relative w-full max-w-4xl z-10'>
-            {/* CAR SVG */}
+          <div className='relative w-full max-w-5xl z-10 transition-transform duration-500 hover:scale-[1.02]'>
+            {/* CAR SVG - PRESERVED LOGIC */}
             <svg
               viewBox='0 0 400 150'
-              className='w-full drop-shadow-[0_35px_35px_rgba(0,0,0,0.8)]'
+              className='w-full drop-shadow-[0_50px_60px_rgba(0,0,0,0.9)]'
               xmlns='http://www.w3.org/2000/svg'
             >
               <defs>
@@ -429,7 +435,7 @@ export default function ConfigurePage () {
                 rx='180'
                 ry='10'
                 fill='black'
-                style={{ filter: 'blur(8px)', opacity: 0.6 }}
+                style={{ filter: 'blur(12px)', opacity: 0.8 }}
               />
 
               {/* car body */}
@@ -486,7 +492,7 @@ export default function ConfigurePage () {
                   r='8'
                   fill={
                     selectedBrake === 'brake_ceramic' ||
-                    selectedBrake === 'brake_ceramic'
+                      selectedBrake === 'brake_ceramic'
                       ? '#e11d1d'
                       : '#111'
                   }
@@ -613,89 +619,81 @@ export default function ConfigurePage () {
                 </g>
               )}
             </svg>
+
+            <h2 className='text-center mt-12 text-6xl font-serif text-white/10 uppercase tracking-[0.5em] select-none'>
+              {car.name.split(' ')[0]}
+            </h2>
           </div>
         </div>
 
-        {/* SIDEBAR */}
-        <div className='lg:w-1/4 bg-[#0a0a0a] border-l border-white/10 flex flex-col h-full z-20 shadow-xl'>
-          <div className='p-8 border-b border-white/10'>
-            <h1 className='text-3xl font-serif uppercase'>{car.name}</h1>
-            <p className='text-gray-400 text-sm mt-2'>{car.price}</p>
-          </div>
-
-          <div className='flex-1 overflow-y-auto p-6 space-y-8 scrollbar-hide'>
-            <div>
-              <h4 className='text-xs uppercase text-white/60 mb-2'>
-                Exterior Color
-              </h4>
-              <AdvancedColorPicker
-                color={exteriorColor}
-                onChange={setExteriorColor}
-              />
-            </div>
-
-            <div>
-              <h4 className='text-xs uppercase text-white/60 mb-2'>
-                Interior Color
-              </h4>
-              <input
-                type='color'
-                value={interiorColor}
-                onChange={e => setInteriorColor(e.target.value)}
-                className='w-12 h-12 border border-white/20'
-              />
-            </div>
-
-            <div>
-              <h4 className='text-xs uppercase text-white/60 mb-2'>
-                Quick Actions
-              </h4>
-              <div className='flex items-center gap-3'>
-                <input
-                  id='ceramic_quick'
-                  type='checkbox'
-                  checked={selectedParts['brakes'] === 'brake_ceramic'}
-                  onChange={() =>
-                    setSelected(
-                      'brakes',
-                      selectedParts['brakes'] === 'brake_ceramic'
-                        ? ''
-                        : 'brake_ceramic'
-                    )
-                  }
-                />
-                <label htmlFor='ceramic_quick' className='text-sm'>
-                  Ceramic Brakes
-                </label>
+        {/* SIDEBAR - SCROLLABLE ON DESKTOP */}
+        <div className='lg:w-2/5 lg:ml-auto relative min-h-screen'>
+          <div className='bg-[#050505] p-8 md:p-12 pb-32'>
+            {/* Header Info */}
+            <div className='mb-12'>
+              <span className='text-gold font-industrial text-xs tracking-[0.3em] font-bold block mb-2'>Configuration</span>
+              <div className='flex items-baseline justify-between border-b border-white/10 pb-6'>
+                <h1 className='text-3xl md:text-5xl font-serif text-white'>{car.name}</h1>
+              </div>
+              <div className='flex justify-between items-center mt-4'>
+                <span className='text-gray-400 font-mono text-sm'>Base Price</span>
+                <span className='text-xl text-white font-mono'>{car.price}</span>
               </div>
             </div>
+
+            {/* Color Customization */}
+            <div className='mb-12 space-y-8'>
+              <div className='bg-white/5 border border-white/5 p-6'>
+                <h4 className='font-industrial text-sm uppercase tracking-wider text-white mb-4'>Exterior Finish</h4>
+                <AdvancedColorPicker
+                  color={exteriorColor}
+                  onChange={setExteriorColor}
+                />
+              </div>
+
+              <div className='bg-white/5 border border-white/5 p-6 flex items-center justify-between'>
+                <div>
+                  <h4 className='font-industrial text-sm uppercase tracking-wider text-white mb-1'>Interior Trim</h4>
+                  <span className='text-xs text-gray-500'>Accent Color</span>
+                </div>
+                <input
+                  type='color'
+                  value={interiorColor}
+                  onChange={e => setInteriorColor(e.target.value)}
+                  className='w-12 h-12 bg-transparent border-none cursor-pointer'
+                />
+              </div>
+            </div>
+
+            {/* Parts Selection */}
+            <div>
+              <span className='text-white/50 font-industrial text-xs tracking-[0.3em] font-bold block mb-8 uppercase'>Aftermarket Parts</span>
+              {PART_SECTIONS.map(section => (
+                <PartSelectionSection
+                  key={section.key}
+                  title={section.title}
+                  options={section.items}
+                  selected={selectedParts[section.key] ?? null}
+                  onSelect={id => setSelected(section.key, id)}
+                />
+              ))}
+            </div>
           </div>
 
-          <div className='p-6 border-t border-white/10'>
+          {/* Floating Footer in Sidebar */}
+          <div className='sticky bottom-0 bg-[#050505]/90 backdrop-blur-lg border-t border-white/10 p-6 flex items-center gap-4 z-40'>
+            <button className='p-4 border border-white/20 text-white hover:text-gold hover:border-gold transition-colors'>
+              <Save size={20} />
+            </button>
             <button
               onClick={handleProceed}
-              className='w-full bg-white text-black py-4 font-bold uppercase hover:bg-gray-200'
+              className='flex-1 bg-gold text-black h-14 font-industrial font-bold uppercase tracking-[0.2em] hover:bg-white transition-colors flex items-center justify-center gap-2'
             >
-              Confirm Spec <ShoppingBag className='inline ml-2' size={16} />
+              Confirm Spec <ShoppingBag size={18} />
             </button>
           </div>
         </div>
       </div>
-
-      {/* PART SECTIONS - dynamically generated */}
-      <div className='max-w-6xl mx-auto'>
-        {PART_SECTIONS.map(section => (
-          <PartSelectionSection
-            key={section.key}
-            title={section.title}
-            options={section.items}
-            selected={selectedParts[section.key] ?? null}
-            onSelect={id => setSelected(section.key, id)}
-          />
-        ))}
-      </div>
-
-      <Footer />
     </div>
   )
 }

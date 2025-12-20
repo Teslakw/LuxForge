@@ -2,188 +2,195 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import { ArrowRight, Wrench, Car, Users, Hexagon } from 'lucide-react'
+import { AnimateOnScroll, AnimatedSection } from '@/components/AnimateOnScroll'
 
-type Slide = {
-  image: string
-  heading: string
-  subheading: string
-}
-
-const slides: Slide[] = [
+// Hero Slides Data
+const slides = [
   {
-    image:
-      'https://www.autoblog.com/.image/c_fill,w_1200,h_675,g_faces:center/MjA5MDg5NzM3NjA1NTIzMDU2/2024_nissan_gt-r.jpg',
-    heading: 'Beyond Luxury',
-    subheading: 'Curated supercars, tailored for connoisseurs'
+    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1920&auto=format&fit=crop',
+    heading: 'Heritage. Custom. Performance.',
+    subheading: 'The intersection of automotive luxury and industrial craftsmanship.'
   },
   {
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/McLaren_P1.jpg/1200px-McLaren_P1.jpg',
-    heading: 'Design. Precision. Power.',
-    subheading: 'Where craftsmanship meets performance'
+    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1920&auto=format&fit=crop',
+    heading: 'Bespoke Engineering',
+    subheading: 'Where vision meets precision. Tailored for the connoisseur.'
   },
   {
-    image:
-      'https://imgcdnblog.carbay.com/wp-content/uploads/2020/12/31180127/Koenigsegg-Regera-auction-RM-Sothebys-3.jpg',
-    heading: 'Rare & Exclusive',
-    subheading: 'Reserve only the finest machines'
-  },
-  {
-    image:
-      'https://cdn.motor1.com/images/mgl/AkQY0P/s1/genesis-x-gran-racer-vision-gran-turismo-concept.webp',
-    heading: 'The Pinnacle',
-    subheading: 'An elevated showroom experience'
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920&auto=format&fit=crop',
+    heading: 'The Inner Circle',
+    subheading: "Exclusive access to Indonesia's elite automotive communities."
   }
 ]
 
-export default function Home () {
+// Community Data
+const communities = [
+  { name: 'Dewata Rockers', desc: 'Cafe Racer & Custom Culture Heritage', icon: 'DR' },
+  { name: 'HDCI Bali', desc: 'The Elite Harley Davidson Circle', icon: 'HD' },
+  { name: 'BBMC', desc: 'Brotherhood & Classic Machines', icon: '1%' },
+  { name: 'QJRiders', desc: 'Modern Performance Pioneers', icon: 'QJ' }
+]
+
+// Services Data
+const services = [
+  { title: 'Sales & Rental', icon: Car, desc: 'Premium luxury vehicles and superbikes for ownership or exclusive experiences.', link: '/showroom' },
+  { title: 'Custom Works', icon: Wrench, desc: 'Artistic modification and performance tuning for the discerning enthusiast.', link: '/custom-works' },
+  { title: 'Parts & Gear', icon: Hexagon, desc: 'Curated accessories and performance parts from top global brands.', link: '/accessories' },
+  { title: 'Community', icon: Users, desc: "A hub for Bali's most prestigious automotive clubs and gatherings.", link: '/community' }
+]
+
+export default function Home() {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     const t = setInterval(() => {
-      setIndex(i => (i + 1) % slides.length)
+      setIndex((i: number) => (i + 1) % slides.length)
     }, 6000)
     return () => clearInterval(t)
   }, [])
 
   return (
-    <div className='bg-black'>
-      {/* Hero Slider: Ken Burns + Crossfade, full viewport */}
+    <div className='bg-[#050505] text-white overflow-x-hidden'>
+      {/* 1. HERO SECTION */}
       <section className='relative h-screen w-screen overflow-hidden'>
-        {/* Slides */}
-        <div className='absolute inset-0'>
-          {slides.map((s, i) => (
-            <div
-              key={s.image}
-              className={`absolute inset-0 transition-opacity duration-1400 ${
-                i === index ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <div className='absolute inset-0 scale-[1.03] animate-[kenburns_16s_ease-in-out_infinite] will-change-transform'>
-                <img
-                  src={s.image}
-                  alt={s.heading}
-                  className='w-full h-full object-cover brightness-[0.95]'
-                />
-              </div>
-              <div className='absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/70 backdrop-blur-[1px]' />
-              {/* Text overlay per slide: varied placement + gold accent */}
-              <div
-                className={`absolute z-10 ${
-                  i % 3 === 0
-                    ? 'bottom-24 left-16 md:left-24'
-                    : i % 3 === 1
-                    ? 'top-24 right-16 md:right-24 text-right'
-                    : 'bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 text-center'
-                }`}
-              >
-                <div
-                  className={`inline-block max-w-lg px-4 md:px-6 py-3 md:py-4 rounded-lg bg-black/40 backdrop-blur-sm animate-fade-in-slow`}
-                >
-                  <h1 className='text-4xl md:text-6xl font-serif text-white tracking-tight mb-3'>
-                    {s.heading}
-                  </h1>
-                  <div className='h-0.5 w-24 md:w-32 bg-[#d4af37]/90 mx-auto md:mx-0 mb-3 animate-gold-glow' />
-                  <p className='text-sm md:text-base text-gray-200'>
-                    {s.subheading}
-                  </p>
+        {slides.map((s, i: number) => (
+          <div
+            key={i}
+            className={`absolute inset-0 transition-opacity duration-1000 ${i === index ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <div className='absolute inset-0 bg-black/40 z-10' />
+            <img
+              src={s.image}
+              alt={s.heading}
+              className='w-full h-full object-cover'
+              style={{ animation: 'kenburns 20s ease-in-out infinite' }}
+            />
+            <div className='absolute inset-0 flex items-center justify-center z-20 text-center px-4'>
+              <div className='max-w-4xl'>
+                <h1 className='text-5xl md:text-8xl font-serif font-bold tracking-tight mb-6 animate-fade-in'>
+                  {s.heading}
+                </h1>
+                <div className='h-1 w-24 bg-gold mx-auto mb-6 animate-width-in' />
+                <p className='text-lg md:text-2xl text-gray-200 font-light tracking-wide animate-fade-in-slow'>
+                  {s.subheading}
+                </p>
+                <div className='mt-10'>
+                  <Link href='/showroom' className='lux-button inline-block px-10 py-4 bg-transparent border border-white/20 hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 font-industrial font-bold tracking-[0.2em] text-sm uppercase'>
+                    Enter Showroom
+                  </Link>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Top-right CTA */}
-        <div className='absolute top-6 right-6 z-10 animate-fade-in'>
-          <Link href='/showroom' className='inline-block'>
-            <span className='px-4 py-2 bg-white/90 text-black text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-white transition'>
-              View Collection
-            </span>
-          </Link>
-        </div>
+          </div>
+        ))}
       </section>
 
-      {/* Content below slider: full-image luxury panels with overlay */}
-      <section className='text-white animate-fade-in-slow'>
-        {/* Section 2 */}
-        <div className='relative w-screen h-[70vh] md:h-[80vh] overflow-hidden animate-fade-in-slow'>
-          <img
-            src='https://lh6.googleusercontent.com/savwFHgzycqHy265FBpFHOxfpPGAabVWpbXuktyIfusRz9epxayL6o9GYrGqLMoKnF3Y9iyhg52E2O9GqxJJ0U51csL3fmhTs7E3WrlcWb0rwumz94xg6bIqBYxAZDWKEWS4sNYPQdTlW6i6PE7tw44'
-            alt='Concierge'
-            className='absolute inset-0 w-full h-full object-cover opacity-95'
-          />
-          <div className='absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/70 backdrop-blur-[1px]' />
-          <div className='absolute bottom-16 left-8 md:left-16 max-w-xl'>
-            <div className='bg-black/40 backdrop-blur-sm p-6 rounded-xl animate-fade-in-slow'>
-              <h2 className='text-3xl md:text-4xl font-serif mb-3'>
-                Private Concierge
-              </h2>
-              <div className='h-0.5 w-20 bg-[#d4af37] mb-4 animate-gold-glow' />
-              <p className='text-gray-200 mb-6'>
-                Experience a tailored acquisition journey: from configuration to
-                allocation, our concierge ensures every detail meets your
-                expectations.
-              </p>
-              <Link href='/showroom'>
-                <span className='inline-block px-5 py-3 bg-white text-black text-[11px] font-bold uppercase tracking-[0.2em]'>
-                  Explore Showroom
-                </span>
-              </Link>
-              <div className='mt-4 flex items-center gap-2 text-xs text-gray-300'>
-                <span className='px-2 py-1 rounded-full bg-white/10 border border-white/10'>
-                  Concierge
-                </span>
-                <span className='px-2 py-1 rounded-full bg-white/10 border border-white/10'>
-                  Allocation
-                </span>
-              </div>
-            </div>
+      {/* 2. SERVICES GRID */}
+      <AnimatedSection className='py-24 px-6 md:px-16 bg-[#0a0a0a] relative'>
+        <div className='absolute inset-0 opacity-5' style={{ backgroundImage: 'radial-gradient(#333 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+
+        <div className='max-w-7xl mx-auto'>
+          {/* Section Header - Appears First */}
+          <AnimateOnScroll animation='fade-up' className='mb-16 text-center'>
+            <span className='text-gold font-industrial uppercase tracking-[0.3em] text-xs font-bold'>What We Do</span>
+            <h2 className='text-4xl md:text-5xl font-serif mt-4'>Forging Excellence</h2>
+          </AnimateOnScroll>
+
+          {/* Cards - Staggered Appearance */}
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            {services.map((service, idx) => (
+              <AnimateOnScroll key={idx} animation='fade-up' delay={0.1 + idx * 0.1}>
+                <div className='lux-card group p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] relative overflow-hidden h-full'>
+                  <div className='absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity'>
+                    <service.icon size={64} />
+                  </div>
+                  <service.icon size={32} className='text-gold mb-6 lux-icon' />
+                  <h3 className='text-xl font-serif mb-3'>{service.title}</h3>
+                  <p className='text-sm text-gray-400 leading-relaxed mb-6'>{service.desc}</p>
+                  <Link href={service.link} className='text-[10px] uppercase font-bold tracking-widest text-white/50 group-hover:text-gold flex items-center gap-2 transition-colors'>
+                    Explore <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </AnimateOnScroll>
+            ))}
           </div>
         </div>
+      </AnimatedSection>
 
-        {/* Section 3 */}
-        <div className='relative w-screen h-[70vh] md:h-[80vh] overflow-hidden animate-fade-in-slow'>
-          <img
-            src='https://cdn.motor1.com/images/mgl/JOBqOJ/s1/phantom-scintilla-private-collection---0.webp'
-            alt='Rarity'
-            className='absolute inset-0 w-full h-full object-cover opacity-95'
-          />
-          <div className='absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/70 backdrop-blur-[1px]' />
-          <div className='absolute top-20 right-8 md:right-16 max-w-xl text-right'>
-            <div className='bg-black/40 backdrop-blur-sm p-6 rounded-xl inline-block text-left md:text-right animate-fade-in-slow'>
-              <h2 className='text-3xl md:text-4xl font-serif mb-3'>
-                Curated Rarity
-              </h2>
-              <div className='ml-auto h-0.5 w-20 bg-[#d4af37] mb-4 animate-gold-glow' />
-              <div className='ml-auto h-0.5 w-20 bg-[#d4af37] mb-4 animate-gold-glow' />
-              <p className='text-gray-200 mb-6'>
-                Our selection emphasizes provenance, specification, and rarity —
-                presenting only the most desirable supercars.
+      {/* 3. THE INNER CIRCLE (Community) */}
+      <AnimatedSection className='py-24 bg-[#050505] relative overflow-hidden'>
+        <div className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent' />
+
+        <div className='container mx-auto px-6 md:px-16'>
+          {/* Header Row */}
+          <div className='flex flex-col md:flex-row items-end justify-between mb-16 gap-8'>
+            <AnimateOnScroll animation='fade-left' className='max-w-2xl'>
+              <h2 className='text-4xl md:text-6xl font-serif mb-4'>The Inner Circle</h2>
+              <p className='text-gray-400 text-lg'>
+                LuxForge is more than a workshop. It is the beating heart of Bali's elite automotive culture.
               </p>
-              <Link href='/showroom'>
-                <span className='inline-block px-5 py-3 bg-white text-black text-[11px] font-bold uppercase tracking-[0.2em]'>
-                  View Collection
-                </span>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation='fade-right' delay={0.2}>
+              <Link href='/community' className='lux-button px-8 py-3 border border-white/20 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors'>
+                Join the Movement
               </Link>
-              <div className='mt-4 flex items-center gap-2 justify-end text-xs text-gray-300'>
-                <span className='px-2 py-1 rounded-full bg-white/10 border border-white/10'>
-                  Provenance
-                </span>
-                <span className='px-2 py-1 rounded-full bg-white/10 border border-white/10'>
-                  Specification
-                </span>
-                <span className='px-2 py-1 rounded-full bg-white/10 border border-white/10'>
-                  Rarity
-                </span>
-              </div>
-            </div>
+            </AnimateOnScroll>
+          </div>
+
+          {/* Community Cards - Staggered */}
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+            {communities.map((c, i) => (
+              <AnimateOnScroll key={i} animation='fade-scale' delay={0.1 + i * 0.1}>
+                <div className='lux-card aspect-square border border-white/10 p-8 flex flex-col justify-between hover:border-gold/50 transition-colors group cursor-default'>
+                  <div className='text-6xl font-industrial font-bold text-white/10 group-hover:text-gold/20 transition-colors'>
+                    {c.icon}
+                  </div>
+                  <div>
+                    <h4 className='text-xl font-serif mb-2'>{c.name}</h4>
+                    <p className='text-xs text-gray-500 uppercase tracking-wider'>{c.desc}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <div className='animate-fade-in'>
-        <Footer />
-      </div>
+      {/* 4. SHOWCASE CTA */}
+      <AnimatedSection className='relative py-32 flex items-center justify-center overflow-hidden'>
+        <div className='absolute inset-0 z-0'>
+          <img
+            src='https://images.unsplash.com/photo-1562426522-863a3d540266?q=80&w=1920&auto=format&fit=crop'
+            className='w-full h-full object-cover opacity-20'
+            alt='Workshop'
+          />
+          <div className='absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-[#050505]' />
+        </div>
+
+        <div className='relative z-10 text-center max-w-4xl px-6'>
+          {/* Heading First */}
+          <AnimateOnScroll animation='fade-up'>
+            <h2 className='text-4xl md:text-7xl font-serif mb-8'>Craft Your Legacy</h2>
+          </AnimateOnScroll>
+
+          {/* Content Second */}
+          <AnimateOnScroll animation='fade-up' delay={0.15}>
+            <p className='text-xl text-gray-300 mb-10 font-light'>
+              Your vehicle is an extension of your identity. Configure your dream machine with our bespoke visualization engine.
+            </p>
+          </AnimateOnScroll>
+
+          {/* CTA Last */}
+          <AnimateOnScroll animation='fade-up' delay={0.3}>
+            <Link href='/showroom' className='lux-button inline-block bg-gold text-black px-12 py-5 font-bold uppercase tracking-[0.2em] hover:bg-white transition-colors'>
+              Start Configuration
+            </Link>
+          </AnimateOnScroll>
+        </div>
+      </AnimatedSection>
+
+      <Footer />
     </div>
   )
 }

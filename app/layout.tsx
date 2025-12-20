@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Premium Supercar Marketplace'
 }
 
-export default function RootLayout ({
+export default function RootLayout({
   children
 }: {
   children: React.ReactNode
@@ -15,7 +15,7 @@ export default function RootLayout ({
   return (
     <html lang='en'>
       <head>
-        {/* Import Font Cinzel (Serif Mewah) dan Manrope (Sans Modern) */}
+        {/* Import Fonts: Cinzel (Luxury Serif), Oswald (Industrial), Inter (UI) */}
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link
           rel='preconnect'
@@ -23,11 +23,11 @@ export default function RootLayout ({
           crossOrigin='anonymous'
         />
         <link
-          href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@200;400;600&display=swap'
+          href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;700&display=swap'
           rel='stylesheet'
         />
       </head>
-      <body className='bg-black text-white font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden'>
+      <body className='bg-[#050505] text-white font-sans antialiased selection:bg-[#C5A059] selection:text-black overflow-x-hidden'>
         <Navbar />
         {children}
       </body>

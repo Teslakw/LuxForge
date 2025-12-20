@@ -1,47 +1,94 @@
 @import "tailwindcss";
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-  --background: #0a0a0a;
+  --background: #050505;
   --foreground: #ededed;
-  --gold: #c8a75f;
-  --gold-soft: #b7974f;
+
+  /* Brand Colors */
+  --lux-black: #050505;
+  --lux-dark-grey: #121212;
+  --lux-gold: #C5A059;
+  --lux-gold-dim: #8A703E;
+  --lux-silver: #E0E0E0;
+  --lux-red: #D92525;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  font-family: 'Manrope', sans-serif;
-  /* Font default */
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
 }
 
-/* Font Setting untuk Judul Mewah */
 h1,
 h2,
 h3,
+h4,
 .font-serif {
   font-family: 'Cinzel', serif;
 }
 
-/* Scrollbar Kustom biar hitam elegan */
+.font-industrial {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #333;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
-/* Animasi Kustom */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lux-gold);
+}
+
+/* Utilities */
+.text-gold {
+  color: var(--lux-gold);
+}
+
+.bg-gold {
+  background-color: var(--lux-gold);
+}
+
+.border-gold {
+  border-color: var(--lux-gold);
+}
+
+.glass-panel {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lux-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.lux-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--lux-gold), transparent);
+}
+
+/* ================================= */
+/* LUXURY ANIMATIONS                */
+/* ================================= */
+
+/* Basic Fade Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -54,88 +101,80 @@ h3,
   }
 }
 
-/* Premium animation utilities */
-@keyframes fade-in {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(8px);
-
-    to {
-      opacity: 1
-    }
-  }
-
-  @keyframes slide-up {
-    from {
-      opacity: 0;
-      transform: translateY(12px)
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0)
-    }
-  }
-
-  @keyframes width-in {
-    from {
-      width: 0
-    }
-
-    to {
-      width: 6rem
-    }
-  }
-
-  @keyframes card-in {
-    from {
-      opacity: 0;
-    }
+    transform: translateY(40px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1)
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
 
-  animation: fadeIn 0.6s ease-out both;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-fade-in-slow {
-  animation: fadeIn 1.2s ease-out both;
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.animate-gold-glow {
-  position: relative;
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.animate-gold-glow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
-  border-radius: 2px;
+/* Gold Glow */
+@keyframes goldGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(197, 160, 89, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.5);
+  }
 }
 
-.animate-fade-in {
-  animation: fade-in 800ms ease forwards;
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-.animate-slide-up {
-  animation: slide-up 800ms ease forwards;
-}
-
-.animate-width-in {
-  animation: width-in 1000ms ease forwards;
-}
-
-.animate-card-in {
-  animation: card-in 700ms ease forwards;
-}
-
-
-
-@keyframes pulse {
+/* Pulse Scale */
+@keyframes pulseScale {
 
   0%,
   100% {
@@ -143,36 +182,447 @@ h3,
   }
 
   50% {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: radial-gradient(1200px 600px at 20% -10%, rgba(200, 167, 95, 0.08), transparent),
-    radial-gradient(800px 400px at 80% -10%, rgba(255, 255, 255, 0.06), transparent),
-    var(--background);
+/* Rotate Spin */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Luxury header refinements */
-nav {
-  font-feature-settings: "ss01" on, "liga" on;
+/* Ken Burns for Hero Images */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
-.font-serif {
-  font-family: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+/* Width Expand */
+@keyframes widthIn {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
-.lux-underline {
+/* Bounce Subtle */
+@keyframes bounceSubtle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Float */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Stagger Reveal */
+@keyframes staggerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Slide Width */
+@keyframes slideWidth {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* Border Glow */
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    border-color: rgba(197, 160, 89, 0.2);
+  }
+
+  50% {
+    border-color: rgba(197, 160, 89, 0.8);
+  }
+}
+
+/* ================================= */
+/* ANIMATION CLASSES                */
+/* ================================= */
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-slow {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.animate-gold-glow {
+  animation: goldGlow 3s infinite ease-in-out;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 160, 89, 0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-scale {
+  animation: pulseScale 3s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.animate-kenburns {
+  animation: kenburns 20s ease-in-out infinite;
+}
+
+.animate-width-in {
+  animation: widthIn 0.8s ease-out forwards;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 2s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: float 4s infinite ease-in-out;
+}
+
+.animate-stagger {
+  animation: staggerReveal 0.6s ease-out forwards;
+}
+
+.animate-border-glow {
+  animation: borderGlow 2s infinite ease-in-out;
+}
+
+/* Stagger Delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* ================================= */
+/* INTERACTIVE HOVER EFFECTS        */
+/* ================================= */
+
+/* Luxury Card Lift */
+.lux-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lux-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(197, 160, 89, 0.1);
+}
+
+/* Magnetic Button Effect */
+.lux-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lux-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.lux-button:hover::before {
+  left: 100%;
+}
+
+.lux-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+}
+
+/* Image Reveal */
+.lux-image {
+  overflow: hidden;
   position: relative;
 }
 
-.lux-underline::after {
-  content: "";
+.lux-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0) 0%, rgba(197, 160, 89, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.lux-image:hover::after {
+  opacity: 1;
+}
+
+.lux-image img {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lux-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Text Reveal Underline */
+.lux-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.lux-link::after {
+  content: '';
   position: absolute;
   left: 0;
-  bottom: -4px;
-  width: 100%;
+  bottom: -2px;
+  width: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(200, 167, 95, 0) 0%, rgba(200, 167, 95, 0.7) 50%, rgba(200, 167, 95, 0) 100%);
+  background: var(--lux-gold);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lux-link:hover::after {
+  width: 100%;
+}
+
+.lux-link:hover {
+  color: var(--lux-gold);
+}
+
+/* Icon Spin on Hover */
+.lux-icon {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+}
+
+.lux-icon:hover {
+  transform: rotate(15deg) scale(1.1);
+  color: var(--lux-gold);
+}
+
+/* Border Draw Effect */
+.lux-border-draw {
+  position: relative;
+}
+
+.lux-border-draw::before,
+.lux-border-draw::after {
+  content: '';
+  position: absolute;
+  background: var(--lux-gold);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lux-border-draw::before {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+}
+
+.lux-border-draw::after {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 1px;
+}
+
+.lux-border-draw:hover::before,
+.lux-border-draw:hover::after {
+  width: 100%;
+}
+
+/* Parallax on Scroll (JS Required) */
+.parallax-slow {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Cursor Glow Effect */
+.cursor-glow {
+  position: relative;
+}
+
+.cursor-glow::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-glow:hover::before {
+  opacity: 1;
+}
+
+/* Split Text Reveal */
+.split-reveal {
+  overflow: hidden;
+}
+
+.split-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Smooth Focus States */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--lux-gold);
+  outline-offset: 4px;
+}
+
+/* Selection Color */
+::selection {
+  background: var(--lux-gold);
+  color: var(--lux-black);
+}
+
+/* Page Transition */
+.page-transition {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--lux-gold), transparent);
+  z-index: 9999;
+  transform-origin: left;
+}
+/* ================================= */
+/* SCROLL-TRIGGERED ANIMATIONS      */
+/* ================================= */
+
+/* Section visibility states */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================= */
+/* REDUCED MOTION SUPPORT           */
+/* ================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .section-hidden {
+    opacity: 1;
+    transform: none;
+  }
 }

@@ -3,104 +3,320 @@
     "id": 1,
     "name": "Rolls-Royce Phantom Series II",
     "price": "IDR 18.0 M",
-    "image": "https://images.unsplash.com/photo-1720828973721-9b29a0d0e2d4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "https://images.unsplash.com/photo-1631295868223-63265b40d9e4?q=80&w=1200",
     "type": "Luxury",
+    "vehicleType": "car",
     "category": "Rolls-Royce",
     "specs": {
       "engine": "6.75L V12",
       "power": "563 HP",
       "speed": "250 km/h"
-    }
+    },
+    "rentalPrice": "Rp 25.000.000",
+    "availableForRent": true
   },
   {
     "id": 2,
-    "name": "Mansory Lamborghini Urus",
+    "name": "LuxForge Lamborghini Urus",
     "price": "IDR 15.5 M",
-    "image": "https://images.unsplash.com/photo-1627140290942-7c8f9f56e870?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1200",
     "type": "Super SUV",
+    "vehicleType": "car",
     "category": "Lamborghini",
     "specs": {
       "engine": "4.0L V8 TT",
       "power": "810 HP",
       "speed": "320 km/h"
-    }
+    },
+    "rentalPrice": "Rp 18.000.000",
+    "availableForRent": true
   },
   {
     "id": 3,
     "name": "Ferrari SF90 Stradale",
     "price": "IDR 16.8 M",
-    "image": "https://images.unsplash.com/photo-1609138315745-4e44ac3bbd8d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1200",
     "type": "Hypercar",
+    "vehicleType": "car",
     "category": "Ferrari",
     "specs": {
       "engine": "V8 Hybrid",
       "power": "986 HP",
       "speed": "340 km/h"
-    }
+    },
+    "rentalPrice": "Rp 35.000.000",
+    "availableForRent": true
   },
   {
     "id": 4,
     "name": "Porsche 911 GT3 RS",
     "price": "IDR 11.2 M",
-    "image": "https://images.unsplash.com/photo-1688398658141-d39eda099217?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "https://images.unsplash.com/photo-1614162692292-7ac56d7f373e?q=80&w=1200",
     "type": "Track Weapon",
+    "vehicleType": "car",
     "category": "Porsche",
     "specs": {
       "engine": "4.0L Flat-6",
       "power": "518 HP",
       "speed": "296 km/h"
-    }
+    },
+    "rentalPrice": "Rp 15.000.000",
+    "availableForRent": true
   },
   {
     "id": 5,
-    "name": "Koenigsegg Jesko",
-    "price": "IDR 45.0 M",
-    "image": "https://images.unsplash.com/photo-1683216497578-899ee0033067?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "type": "Hypercar",
-    "category": "Koenigsegg",
-    "specs": {
-      "engine": "5.0L V8 TT",
-      "power": "1280-1600 HP",
-      "speed": "480+ km/h"
-    }
-  },
-  {
-    "id": 6,
-    "name": "McLaren 720S",
-    "price": "IDR 10.5 M",
-    "image": "https://images.unsplash.com/photo-1617335692042-7a3779b8e050?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "type": "Supercar",
-    "category": "McLaren",
-    "specs": {
-      "engine": "4.0L V8 TT",
-      "power": "710 HP",
-      "speed": "341 km/h"
-    }
-  },
-  {
-    "id": 7,
-    "name": "Mercedes-AMG S63",
+    "name": "Mercedes-AMG GT",
     "price": "IDR 5.8 M",
-    "image": "https://www.mercedes-amg.com/media/images/44c7b3361897f6162a973a570d5e34c275bbec26-1440x810.jpg?auto=format&fit=max&q=75&w=1440",
+    "image": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1200",
     "type": "Luxury Performance",
+    "vehicleType": "car",
     "category": "Mercedes",
     "specs": {
       "engine": "4.0L V8 TT",
       "power": "603 HP",
       "speed": "300 km/h"
-    }
+    },
+    "rentalPrice": "Rp 12.000.000",
+    "availableForRent": true
+  },
+  {
+    "id": 6,
+    "name": "Toyota Alphard Executive",
+    "price": "IDR 1.8 M",
+    "image": "https://images.unsplash.com/photo-1559416523-140ddc3d238c?q=80&w=1200",
+    "type": "Premium MPV",
+    "vehicleType": "car",
+    "category": "Toyota",
+    "specs": {
+      "engine": "2.5L Hybrid",
+      "power": "190 HP",
+      "speed": "180 km/h"
+    },
+    "rentalPrice": "Rp 3.500.000",
+    "availableForRent": true
+  },
+  {
+    "id": 7,
+    "name": "Toyota Avanza Veloz",
+    "price": "IDR 280 Jt",
+    "image": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1200",
+    "type": "Family MPV",
+    "vehicleType": "car",
+    "category": "Toyota",
+    "specs": {
+      "engine": "1.5L DOHC",
+      "power": "106 HP",
+      "speed": "170 km/h"
+    },
+    "rentalPrice": "Rp 650.000",
+    "availableForRent": true
   },
   {
     "id": 8,
-    "name": "Rolls-Royce Cullinan Black Badge",
-    "price": "IDR 12.0 M",
-    "image": "https://imgcdnblog.carvaganza.com/wp-content/uploads/2019/11/RR-Cullinan-BB_01.jpg",
-    "type": "Ultra Luxury SUV",
-    "category": "Rolls-Royce",
+    "name": "Hyundai Stargazer",
+    "price": "IDR 290 Jt",
+    "image": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=1200",
+    "type": "Modern MPV",
+    "vehicleType": "car",
+    "category": "Other",
     "specs": {
-      "engine": "6.75L V12",
-      "power": "592 HP",
-      "speed": "250 km/h"
-    }
+      "engine": "1.5L MPI",
+      "power": "115 HP",
+      "speed": "180 km/h"
+    },
+    "rentalPrice": "Rp 700.000",
+    "availableForRent": true
+  },
+  {
+    "id": 9,
+    "name": "Honda CR-V Hybrid",
+    "price": "IDR 750 Jt",
+    "image": "https://images.unsplash.com/photo-1568844293986-ca3c5f2c0c2e?q=80&w=1200",
+    "type": "SUV",
+    "vehicleType": "car",
+    "category": "Honda",
+    "specs": {
+      "engine": "2.0L Hybrid",
+      "power": "184 HP",
+      "speed": "195 km/h"
+    },
+    "rentalPrice": "Rp 2.500.000",
+    "availableForRent": true
+  },
+  {
+    "id": 10,
+    "name": "Honda Brio RS",
+    "price": "IDR 195 Jt",
+    "image": "https://images.unsplash.com/photo-1609521263047-f8f205293f24?q=80&w=1200",
+    "type": "City Car",
+    "vehicleType": "car",
+    "category": "Honda",
+    "specs": {
+      "engine": "1.2L i-VTEC",
+      "power": "90 HP",
+      "speed": "165 km/h"
+    },
+    "rentalPrice": "Rp 450.000",
+    "availableForRent": true
+  },
+  {
+    "id": 11,
+    "name": "Mitsubishi Pajero Sport",
+    "price": "IDR 650 Jt",
+    "image": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200",
+    "type": "Adventure SUV",
+    "vehicleType": "car",
+    "category": "Mitsubishi",
+    "specs": {
+      "engine": "2.4L Diesel",
+      "power": "181 HP",
+      "speed": "190 km/h"
+    },
+    "rentalPrice": "Rp 2.000.000",
+    "availableForRent": true
+  },
+  {
+    "id": 12,
+    "name": "Harley-Davidson Road King",
+    "price": "IDR 1.2 M",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200",
+    "type": "Touring Cruiser",
+    "vehicleType": "motorcycle",
+    "category": "Harley-Davidson",
+    "specs": {
+      "engine": "Milwaukee-Eight 114",
+      "power": "93 HP",
+      "speed": "180 km/h"
+    },
+    "rentalPrice": "Rp 5.000.000",
+    "availableForRent": true
+  },
+  {
+    "id": 13,
+    "name": "Ducati Monster 937",
+    "price": "IDR 450 Jt",
+    "image": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=1200",
+    "type": "Naked Sport",
+    "vehicleType": "motorcycle",
+    "category": "Ducati",
+    "specs": {
+      "engine": "937cc L-Twin",
+      "power": "111 HP",
+      "speed": "235 km/h"
+    },
+    "rentalPrice": "Rp 3.500.000",
+    "availableForRent": true
+  },
+  {
+    "id": 14,
+    "name": "Kawasaki Ninja ZX-10R",
+    "price": "IDR 580 Jt",
+    "image": "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?q=80&w=1200",
+    "type": "Superbike",
+    "vehicleType": "motorcycle",
+    "category": "Kawasaki",
+    "specs": {
+      "engine": "998cc Inline-4",
+      "power": "203 HP",
+      "speed": "299 km/h"
+    },
+    "rentalPrice": "Rp 4.500.000",
+    "availableForRent": true
+  },
+  {
+    "id": 15,
+    "name": "Yamaha NMAX 155",
+    "price": "IDR 35 Jt",
+    "image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=1200",
+    "type": "Premium Scooter",
+    "vehicleType": "motorcycle",
+    "category": "Yamaha",
+    "specs": {
+      "engine": "155cc VVA",
+      "power": "15 HP",
+      "speed": "120 km/h"
+    },
+    "rentalPrice": "Rp 150.000",
+    "availableForRent": true
+  },
+  {
+    "id": 16,
+    "name": "Honda PCX 160",
+    "price": "IDR 38 Jt",
+    "image": "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?q=80&w=1200",
+    "type": "Premium Scooter",
+    "vehicleType": "motorcycle",
+    "category": "Honda",
+    "specs": {
+      "engine": "160cc eSP+",
+      "power": "16 HP",
+      "speed": "125 km/h"
+    },
+    "rentalPrice": "Rp 180.000",
+    "availableForRent": true
+  },
+  {
+    "id": 17,
+    "name": "Honda Beat Street",
+    "price": "IDR 19 Jt",
+    "image": "https://images.unsplash.com/photo-1558980664-769d59546b3d?q=80&w=1200",
+    "type": "Daily Scooter",
+    "vehicleType": "motorcycle",
+    "category": "Honda",
+    "specs": {
+      "engine": "110cc eSP",
+      "power": "9 HP",
+      "speed": "95 km/h"
+    },
+    "rentalPrice": "Rp 100.000",
+    "availableForRent": true
+  },
+  {
+    "id": 18,
+    "name": "Yamaha Aerox 155",
+    "price": "IDR 30 Jt",
+    "image": "https://images.unsplash.com/photo-1622185135505-2d795003994a?q=80&w=1200",
+    "type": "Sport Scooter",
+    "vehicleType": "motorcycle",
+    "category": "Yamaha",
+    "specs": {
+      "engine": "155cc VVA",
+      "power": "15 HP",
+      "speed": "130 km/h"
+    },
+    "rentalPrice": "Rp 175.000",
+    "availableForRent": true
+  },
+  {
+    "id": 19,
+    "name": "Honda Vario 160",
+    "price": "IDR 28 Jt",
+    "image": "https://images.unsplash.com/photo-1591378603223-e15b45a81640?q=80&w=1200",
+    "type": "Sport Scooter",
+    "vehicleType": "motorcycle",
+    "category": "Honda",
+    "specs": {
+      "engine": "160cc eSP+",
+      "power": "15 HP",
+      "speed": "120 km/h"
+    },
+    "rentalPrice": "Rp 160.000",
+    "availableForRent": true
+  },
+  {
+    "id": 20,
+    "name": "Yamaha MT-15",
+    "price": "IDR 42 Jt",
+    "image": "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?q=80&w=1200",
+    "type": "Naked Sport",
+    "vehicleType": "motorcycle",
+    "category": "Yamaha",
+    "specs": {
+      "engine": "155cc VVA",
+      "power": "19 HP",
+      "speed": "140 km/h"
+    },
+    "rentalPrice": "Rp 250.000",
+    "availableForRent": true
   }
 ]

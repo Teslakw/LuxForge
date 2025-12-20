@@ -6,16 +6,26 @@ export interface Car {
   price: string
   image: string
   type: string
+  vehicleType: 'car' | 'motorcycle'
   category:
-    | 'Ferrari'
-    | 'Koenigsegg'
-    | 'McLaren'
-    | 'Rolls-Royce'
-    | 'Mercedes'
-    | 'Lamborghini'
-    | 'Porsche'
-    | 'Other'
+  | 'Ferrari'
+  | 'Koenigsegg'
+  | 'McLaren'
+  | 'Rolls-Royce'
+  | 'Mercedes'
+  | 'Lamborghini'
+  | 'Porsche'
+  | 'Toyota'
+  | 'Honda'
+  | 'Mitsubishi'
+  | 'Harley-Davidson'
+  | 'Ducati'
+  | 'Kawasaki'
+  | 'Yamaha'
+  | 'Other'
   specs: { engine: string; power: string; speed: string }
+  rentalPrice?: string
+  availableForRent?: boolean
 }
 
 import carsJson from './cars.json'
@@ -25,7 +35,7 @@ export const CAR_DATABASE: Car[] = carsJson as unknown as Car[]
 // Helpers for category filtering
 export const cars = CAR_DATABASE
 
-export function getCarsByCategory (category: Car['category']) {
+export function getCarsByCategory(category: Car['category']) {
   return CAR_DATABASE.filter(c => c.category === category)
 }
 
@@ -42,7 +52,7 @@ export interface ImageRepairRequest {
 
 const STORAGE_KEY = 'luxforge_image_repair_requests'
 
-function seedRequestsIfEmpty () {
+function seedRequestsIfEmpty() {
   const existing = localStorage.getItem(STORAGE_KEY)
   if (!existing) {
     const sample: ImageRepairRequest[] = [
@@ -75,7 +85,7 @@ function seedRequestsIfEmpty () {
   }
 }
 
-export function getImageRepairRequests (): ImageRepairRequest[] {
+export function getImageRepairRequests(): ImageRepairRequest[] {
   if (typeof window !== 'undefined') {
     seedRequestsIfEmpty()
     return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
@@ -83,7 +93,7 @@ export function getImageRepairRequests (): ImageRepairRequest[] {
   return []
 }
 
-export function approveImageRepair (id: string): ImageRepairRequest[] {
+export function approveImageRepair(id: string): ImageRepairRequest[] {
   const list = getImageRepairRequests()
   const req = list.find(r => r.id === id)
   if (req && req.selectedReplacement) {
@@ -95,14 +105,14 @@ export function approveImageRepair (id: string): ImageRepairRequest[] {
   return list
 }
 
-export function rejectImageRepair (id: string): ImageRepairRequest[] {
+export function rejectImageRepair(id: string): ImageRepairRequest[] {
   const list = getImageRepairRequests()
   const next = list.filter(r => r.id !== id)
   localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
   return next
 }
 
-export function replaceCarImageById (carId: number, newUrl: string) {
+export function replaceCarImageById(carId: number, newUrl: string) {
   const idx = CAR_DATABASE.findIndex(c => c.id === carId)
   if (idx >= 0) {
     CAR_DATABASE[idx] = { ...CAR_DATABASE[idx], image: newUrl }
