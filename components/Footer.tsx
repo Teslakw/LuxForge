@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { Instagram, Youtube } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -16,9 +17,12 @@ export default function Footer() {
             From muscle to modern supercars, we forge excellence.
           </p>
           <div className='flex gap-4'>
-            {/* Social Placeholders could go here */}
-            <div className='w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors cursor-pointer'>IG</div>
-            <div className='w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors cursor-pointer'>YT</div>
+            <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' className='w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors cursor-pointer'>
+              <Instagram size={18} />
+            </a>
+            <a href='https://youtube.com' target='_blank' rel='noopener noreferrer' className='w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors cursor-pointer'>
+              <Youtube size={18} />
+            </a>
           </div>
         </div>
 
