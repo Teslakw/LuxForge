@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
-import { ArrowRight, Wrench, Car, Users, Hexagon } from 'lucide-react'
+import { ArrowRight, Wrench, Car, Users, Hexagon, Star } from 'lucide-react'
 import { AnimateOnScroll, AnimatedSection } from '@/components/AnimateOnScroll'
 
 // Hero Slides Data
@@ -186,6 +186,99 @@ export default function Home() {
             <Link href='/showroom' className='lux-button inline-block bg-gold text-black px-12 py-5 font-bold uppercase tracking-[0.2em] hover:bg-white transition-colors'>
               Start Configuration
             </Link>
+          </AnimateOnScroll>
+        </div>
+      </AnimatedSection>
+
+      {/* 5. CLIENT REVIEWS */}
+      <AnimatedSection className='py-24 px-6 md:px-16 bg-[#0a0a0a] relative'>
+        <div className='absolute inset-0 opacity-5' style={{ backgroundImage: 'radial-gradient(#333 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+
+        <div className='max-w-7xl mx-auto'>
+          <AnimateOnScroll animation='fade-up' className='text-center mb-16'>
+            <span className='text-gold font-industrial uppercase tracking-[0.3em] text-xs font-bold'>Testimonials</span>
+            <h2 className='text-4xl md:text-5xl font-serif mt-4'>What Our Clients Say</h2>
+          </AnimateOnScroll>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+            {[
+              {
+                name: 'James Anderson',
+                date: 'November 2024',
+                rating: 5,
+                vehicle: 'Rolls-Royce Phantom',
+                comment: 'An extraordinary experience from start to finish. The vehicle was immaculate and the service was truly world-class. Highly recommend!'
+              },
+              {
+                name: 'Michelle Chen',
+                date: 'October 2024',
+                rating: 5,
+                vehicle: 'Ducati Monster',
+                comment: 'Perfect for my weekend adventure. The bike was in pristine condition and the booking process was seamless. Will definitely return!'
+              },
+              {
+                name: 'Robert Williams',
+                date: 'September 2024',
+                rating: 4,
+                vehicle: 'Toyota Alphard',
+                comment: 'Outstanding service and professionalism. The vehicle was spotless and made our family trip truly memorable.'
+              },
+              {
+                name: 'Sarah Thompson',
+                date: 'December 2024',
+                rating: 5,
+                vehicle: 'Ferrari SF90',
+                comment: 'Dreams do come true! The team made everything effortless. An unforgettable experience I\'ll cherish forever.'
+              }
+            ].map((review, idx) => (
+              <AnimateOnScroll key={idx} animation='fade-up' delay={0.1 + idx * 0.1}>
+                <div className='lux-card bg-white/[0.02] border border-white/5 p-6 h-full flex flex-col hover:border-gold/30 transition-colors'>
+                  {/* Stars */}
+                  <div className='flex gap-1 mb-4'>
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={14}
+                        className={i < review.rating ? 'text-gold fill-gold' : 'text-gray-600'}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Comment */}
+                  <p className='text-gray-300 text-sm leading-relaxed flex-1 mb-4'>
+                    "{review.comment}"
+                  </p>
+
+                  {/* Author */}
+                  <div className='border-t border-white/10 pt-4'>
+                    <p className='text-white font-serif text-sm'>{review.name}</p>
+                    <p className='text-gray-500 text-[10px] uppercase tracking-widest'>
+                      {review.vehicle} • {review.date}
+                    </p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          {/* Trust Badges */}
+          <AnimateOnScroll animation='fade-up' delay={0.5}>
+            <div className='mt-16 flex flex-wrap justify-center items-center gap-12 text-center'>
+              <div>
+                <p className='text-4xl font-serif text-gold'>500+</p>
+                <p className='text-gray-500 text-xs uppercase tracking-widest mt-1'>Happy Clients</p>
+              </div>
+              <div className='w-px h-12 bg-white/10'></div>
+              <div>
+                <p className='text-4xl font-serif text-gold'>4.9</p>
+                <p className='text-gray-500 text-xs uppercase tracking-widest mt-1'>Client Rating</p>
+              </div>
+              <div className='w-px h-12 bg-white/10'></div>
+              <div>
+                <p className='text-4xl font-serif text-gold'>20+</p>
+                <p className='text-gray-500 text-xs uppercase tracking-widest mt-1'>Premium Fleet</p>
+              </div>
+            </div>
           </AnimateOnScroll>
         </div>
       </AnimatedSection>

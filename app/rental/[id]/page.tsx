@@ -214,7 +214,7 @@ export default function RentalBookingPage() {
                                             value={startDate}
                                             onChange={(e) => setStartDate(e.target.value)}
                                             min={new Date().toISOString().split('T')[0]}
-                                            className='w-full bg-black border border-white/10 px-4 py-4 text-white focus:border-gold/50 focus:outline-none transition-colors'
+                                            className='w-full bg-black border border-white/10 px-4 py-4 text-white focus:border-gold/50 focus:outline-none transition-colors [color-scheme:dark]'
                                             required
                                         />
                                     </div>
@@ -227,7 +227,7 @@ export default function RentalBookingPage() {
                                             value={endDate}
                                             onChange={(e) => setEndDate(e.target.value)}
                                             min={startDate || new Date().toISOString().split('T')[0]}
-                                            className='w-full bg-black border border-white/10 px-4 py-4 text-white focus:border-gold/50 focus:outline-none transition-colors'
+                                            className='w-full bg-black border border-white/10 px-4 py-4 text-white focus:border-gold/50 focus:outline-none transition-colors [color-scheme:dark]'
                                             required
                                         />
                                     </div>
