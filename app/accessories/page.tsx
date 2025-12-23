@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
-import { ShoppingBag, Star } from 'lucide-react'
+import { ShoppingBag, Star, SlidersHorizontal, X } from 'lucide-react'
 import { AnimateOnScroll, AnimatedSection } from '@/components/AnimateOnScroll'
 
 export const ACCESSORIES_DATA = [
@@ -39,6 +39,7 @@ const categories = ['All', 'Seni Lokal', 'Suspension', 'Braking', 'Exhaust', 'Pe
 
 export default function Accessories() {
     const [activeFilter, setActiveFilter] = useState('All')
+    const [filterOpen, setFilterOpen] = useState(false)
     const filteredParts = activeFilter === 'All' ? ACCESSORIES_DATA : ACCESSORIES_DATA.filter(p => p.type === activeFilter)
 
     return (
@@ -83,26 +84,78 @@ export default function Accessories() {
                 </AnimateOnScroll>
             </AnimatedSection>
 
-            {/* Filter Tags */}
+            {/* Filter Section */}
             <AnimatedSection className='px-6 md:px-24 py-8 border-b border-white/5'>
                 <AnimateOnScroll animation='fade-up'>
-                    <div className='flex flex-wrap gap-3'>
-                        {categories.map((cat) => {
-                            const count = cat === 'All' ? ACCESSORIES_DATA.length : ACCESSORIES_DATA.filter(p => p.type === cat).length
-                            if (count === 0 && cat !== 'All') return null
-                            return (
-                                <button
-                                    key={cat}
-                                    onClick={() => setActiveFilter(cat)}
-                                    className={`px-4 py-2 text-xs font-industrial uppercase tracking-widest transition-all ${activeFilter === cat
-                                            ? 'bg-gold text-black'
-                                            : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
-                                        }`}
-                                >
-                                    {cat} ({count})
-                                </button>
-                            )
-                        })}
+                    <div className='flex flex-wrap items-center gap-3 mb-4'>
+                        {/* Filter Toggle Button */}
+                        <button
+                            onClick={() => setFilterOpen(!filterOpen)}
+                            className={`flex items-center gap-2 px-4 py-3 text-sm font-industrial font-bold uppercase tracking-widest transition-all ${filterOpen
+                                ? 'bg-gold text-black'
+                                : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10'
+                                }`}
+                        >
+                            {filterOpen ? <X size={18} /> : <SlidersHorizontal size={18} />}
+                            <span className='hidden sm:inline'>Filter</span>
+                        </button>
+
+                        {/* Quick Category Buttons */}
+                        <div className='flex flex-wrap gap-2'>
+                            <button
+                                onClick={() => setActiveFilter('All')}
+                                className={`px-4 py-3 text-xs sm:text-sm font-industrial font-bold uppercase tracking-widest transition-all ${activeFilter === 'All'
+                                    ? 'bg-gold text-black'
+                                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                                    }`}
+                            >
+                                All ({ACCESSORIES_DATA.length})
+                            </button>
+                            <button
+                                onClick={() => setActiveFilter('Seni Lokal')}
+                                className={`px-4 py-3 text-xs sm:text-sm font-industrial font-bold uppercase tracking-widest transition-all ${activeFilter === 'Seni Lokal'
+                                    ? 'bg-gold text-black'
+                                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                                    }`}
+                            >
+                                🇮🇩 <span className='hidden sm:inline'>Seni Lokal</span> ({ACCESSORIES_DATA.filter(p => p.type === 'Seni Lokal').length})
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Collapsible Category Panel */}
+                    <div className={`overflow-hidden transition-all duration-300 ${filterOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className='bg-white/5 border border-white/10 p-4 md:p-6 mt-4'>
+                            <div className='flex items-center justify-between mb-4'>
+                                <span className='text-xs font-industrial uppercase tracking-widest text-gray-500'>Filter by Category</span>
+                                {activeFilter !== 'All' && (
+                                    <button
+                                        onClick={() => setActiveFilter('All')}
+                                        className='text-xs text-gold hover:underline'
+                                    >
+                                        Clear
+                                    </button>
+                                )}
+                            </div>
+                            <div className='flex flex-wrap gap-2'>
+                                {categories.map(cat => {
+                                    const count = cat === 'All' ? ACCESSORIES_DATA.length : ACCESSORIES_DATA.filter(p => p.type === cat).length
+                                    if (count === 0 && cat !== 'All') return null
+                                    return (
+                                        <button
+                                            key={cat}
+                                            onClick={() => setActiveFilter(cat)}
+                                            className={`px-4 py-2 text-xs font-industrial font-bold uppercase tracking-widest transition-all ${activeFilter === cat
+                                                ? 'bg-gold text-black'
+                                                : 'bg-white/5 border border-white/10 text-gray-400 hover:border-gold hover:text-gold'
+                                                }`}
+                                        >
+                                            {cat} ({count})
+                                        </button>
+                                    )
+                                })}
+                            </div>
+                        </div>
                     </div>
                 </AnimateOnScroll>
             </AnimatedSection>

@@ -4,11 +4,12 @@ import { CAR_DATABASE, type Car } from '@/data/cars'
 import React, { useMemo, useState } from 'react'
 import Footer from '@/components/Footer'
 import { AnimateOnScroll, AnimatedSection } from '@/components/AnimateOnScroll'
-import { Car as CarIcon, Bike } from 'lucide-react'
+import { Car as CarIcon, Bike, SlidersHorizontal, X } from 'lucide-react'
 
 export default function Showroom() {
   const [vehicleType, setVehicleType] = useState<'all' | 'car' | 'motorcycle'>('all')
   const [activeCategory, setActiveCategory] = useState<string>('All')
+  const [filterOpen, setFilterOpen] = useState(false)
 
   const filteredVehicles = useMemo(() => {
     let vehicles = CAR_DATABASE
@@ -48,58 +49,86 @@ export default function Showroom() {
           <h2 className='text-4xl md:text-5xl font-serif text-white'>Inventory</h2>
         </AnimateOnScroll>
 
-        {/* Vehicle Type Tabs */}
-        <AnimateOnScroll animation='fade-up' delay={0.1} className='mb-8'>
-          <div className='flex gap-4'>
+        {/* Filter Toggle Button + Vehicle Type (Mobile Responsive) */}
+        <AnimateOnScroll animation='fade-up' delay={0.1} className='mb-6'>
+          <div className='flex flex-wrap items-center gap-3'>
+            {/* Filter Toggle Button */}
             <button
-              onClick={() => { setVehicleType('all'); setActiveCategory('All'); }}
-              className={`flex items-center gap-3 px-6 py-3 text-sm font-industrial font-bold uppercase tracking-widest transition-all ${vehicleType === 'all'
-                  ? 'bg-gold text-black'
-                  : 'bg-white/5 text-gray-400 hover:bg-white/10'
+              onClick={() => setFilterOpen(!filterOpen)}
+              className={`flex items-center gap-2 px-4 py-3 text-sm font-industrial font-bold uppercase tracking-widest transition-all ${filterOpen
+                ? 'bg-gold text-black'
+                : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10'
                 }`}
             >
-              All Vehicles ({CAR_DATABASE.length})
+              {filterOpen ? <X size={18} /> : <SlidersHorizontal size={18} />}
+              <span className='hidden sm:inline'>Filter</span>
             </button>
-            <button
-              onClick={() => { setVehicleType('car'); setActiveCategory('All'); }}
-              className={`flex items-center gap-3 px-6 py-3 text-sm font-industrial font-bold uppercase tracking-widest transition-all ${vehicleType === 'car'
+
+            {/* Vehicle Type Tabs */}
+            <div className='flex flex-wrap gap-2'>
+              <button
+                onClick={() => { setVehicleType('all'); setActiveCategory('All'); }}
+                className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-industrial font-bold uppercase tracking-widest transition-all ${vehicleType === 'all'
                   ? 'bg-gold text-black'
                   : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                }`}
-            >
-              <CarIcon size={18} />
-              Cars ({carCount})
-            </button>
-            <button
-              onClick={() => { setVehicleType('motorcycle'); setActiveCategory('All'); }}
-              className={`flex items-center gap-3 px-6 py-3 text-sm font-industrial font-bold uppercase tracking-widest transition-all ${vehicleType === 'motorcycle'
+                  }`}
+              >
+                <span className='hidden sm:inline'>All</span> ({CAR_DATABASE.length})
+              </button>
+              <button
+                onClick={() => { setVehicleType('car'); setActiveCategory('All'); }}
+                className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-industrial font-bold uppercase tracking-widest transition-all ${vehicleType === 'car'
                   ? 'bg-gold text-black'
                   : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                }`}
-            >
-              <Bike size={18} />
-              Motorcycles ({motorcycleCount})
-            </button>
+                  }`}
+              >
+                <CarIcon size={16} />
+                <span className='hidden sm:inline'>Cars</span> ({carCount})
+              </button>
+              <button
+                onClick={() => { setVehicleType('motorcycle'); setActiveCategory('All'); }}
+                className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-industrial font-bold uppercase tracking-widest transition-all ${vehicleType === 'motorcycle'
+                  ? 'bg-gold text-black'
+                  : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                  }`}
+              >
+                <Bike size={16} />
+                <span className='hidden sm:inline'>Motorcycles</span> ({motorcycleCount})
+              </button>
+            </div>
           </div>
         </AnimateOnScroll>
 
-        {/* Category filter */}
-        <AnimateOnScroll animation='fade-up' delay={0.15} className='mb-12'>
-          <div className='flex flex-wrap gap-3'>
-            {categories.map(c => (
-              <button
-                key={c}
-                onClick={() => setActiveCategory(c)}
-                className={`px-5 py-2 text-xs font-industrial font-bold uppercase tracking-widest transition-all duration-300 ${activeCategory === c
-                    ? 'bg-white text-black'
-                    : 'bg-transparent border border-white/20 text-gray-400 hover:border-gold hover:text-gold'
-                  }`}
-              >
-                {c}
-              </button>
-            ))}
+        {/* Collapsible Category Filter */}
+        <div className={`overflow-hidden transition-all duration-300 ${filterOpen ? 'max-h-96 opacity-100 mb-8' : 'max-h-0 opacity-0'}`}>
+          <div className='bg-white/5 border border-white/10 p-4 md:p-6'>
+            <div className='flex items-center justify-between mb-4'>
+              <span className='text-xs font-industrial uppercase tracking-widest text-gray-500'>Filter by Category</span>
+              {activeCategory !== 'All' && (
+                <button
+                  onClick={() => setActiveCategory('All')}
+                  className='text-xs text-gold hover:underline'
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+            <div className='flex flex-wrap gap-2'>
+              {categories.map(c => (
+                <button
+                  key={c}
+                  onClick={() => setActiveCategory(c)}
+                  className={`px-4 py-2 text-xs font-industrial font-bold uppercase tracking-widest transition-all duration-300 ${activeCategory === c
+                    ? 'bg-gold text-black'
+                    : 'bg-white/5 border border-white/10 text-gray-400 hover:border-gold hover:text-gold'
+                    }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
           </div>
-        </AnimateOnScroll>
+        </div>
 
         {/* Vehicle Grid */}
         <AnimatedSection className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12'>
@@ -119,8 +148,8 @@ export default function Showroom() {
                     {/* Vehicle Type Badge */}
                     <div className='absolute top-4 left-4'>
                       <span className={`px-2 py-1 text-[10px] uppercase tracking-widest border ${vehicle.vehicleType === 'motorcycle'
-                          ? 'bg-orange-500/20 border-orange-500/50 text-orange-400'
-                          : 'bg-blue-500/20 border-blue-500/50 text-blue-400'
+                        ? 'bg-orange-500/20 border-orange-500/50 text-orange-400'
+                        : 'bg-blue-500/20 border-blue-500/50 text-blue-400'
                         }`}>
                         {vehicle.vehicleType === 'motorcycle' ? 'Motorcycle' : 'Car'}
                       </span>
