@@ -15,7 +15,7 @@ import {
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 
-function CheckoutContent () {
+function CheckoutContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -41,6 +41,7 @@ function CheckoutContent () {
   const carId = configData?.carId
   const selectedColor = configData?.exteriorColor || '#ffffff'
   const interiorColor = configData?.interiorColor || '#2b2b2b'
+  const vehicleType = configData?.vehicleType || 'car'
 
   // Konversi Object parts (key:value) menjadi Array string untuk ditampilkan
   // ConfigurePage mengirim format: { wheels: 'id_velg', tires: 'id_ban' }
@@ -59,6 +60,19 @@ function CheckoutContent () {
     date: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // New: Order type (buy or rent)
+  const [orderType, setOrderType] = useState<'buy' | 'rent'>('buy')
+
+  // New: Art modification options
+  const [artModification, setArtModification] = useState<string | null>(null)
+
+  const ART_MODIFICATIONS = [
+    { id: 'batik', name: 'Batik Design', desc: 'Motif batik Indonesia', price: 'Rp 5.000.000' },
+    { id: 'airbrush', name: 'Airbrush Custom', desc: 'Lukisan airbrush custom', price: 'Rp 8.000.000' },
+    { id: 'pinstripe', name: 'Pinstripe Art', desc: 'Garis-garis seni klasik', price: 'Rp 3.000.000' },
+    { id: 'ukir', name: 'Seni Ukir', desc: 'Ukiran artistik pada parts', price: 'Rp 12.000.000' }
+  ]
 
   // Jika mobil tidak ditemukan
   if (!car)
@@ -80,6 +94,9 @@ function CheckoutContent () {
 
     const payload = {
       carName: car.name,
+      vehicleType: vehicleType,
+      orderType: orderType,
+      artModification: artModification,
       color: selectedColor,
       interiorColor: interiorColor,
       parts: selectedParts,
@@ -88,7 +105,7 @@ function CheckoutContent () {
       email: formData.email,
       date: formData.date,
       status: 'Pending Review',
-      price: car.price
+      price: orderType === 'rent' ? car.rentalPrice : car.price
     }
 
     try {
@@ -118,7 +135,7 @@ function CheckoutContent () {
           'luxforge_bookings',
           JSON.stringify([fallbackBooking, ...existing])
         )
-      } catch {}
+      } catch { }
       alert(
         'Permintaan tersimpan secara lokal. Hubungan jaringan tidak stabil.'
       )
@@ -186,11 +203,55 @@ function CheckoutContent () {
 
           {/* Detail Item */}
           <div className='space-y-4'>
+            {/* Vehicle Type Badge */}
             <div className='flex justify-between items-center py-3 border-b border-white/5 text-xs'>
               <span className='text-gray-500 uppercase tracking-wider'>
-                Base Model Price
+                Vehicle Type
               </span>
-              <span className='text-white font-mono'>{car.price}</span>
+              <span className={`px-3 py-1 text-[10px] uppercase font-bold tracking-wider ${vehicleType === 'motorcycle' ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'}`}>
+                {vehicleType === 'motorcycle' ? 'Motor' : 'Mobil'}
+              </span>
+            </div>
+
+            {/* Order Type Toggle */}
+            <div className='py-3 border-b border-white/5'>
+              <span className='text-gray-500 uppercase tracking-wider text-xs block mb-3'>
+                Tipe Pemesanan
+              </span>
+              <div className='grid grid-cols-2 gap-2'>
+                <button
+                  type='button'
+                  onClick={() => setOrderType('buy')}
+                  className={`py-3 text-xs font-bold uppercase tracking-widest transition-all ${orderType === 'buy'
+                    ? 'bg-gold text-black border border-gold'
+                    : 'bg-white/5 text-white/60 border border-white/10 hover:border-white/30'}`}
+                >
+                  Beli
+                </button>
+                <button
+                  type='button'
+                  onClick={() => setOrderType('rent')}
+                  className={`py-3 text-xs font-bold uppercase tracking-widest transition-all ${orderType === 'rent'
+                    ? 'bg-gold text-black border border-gold'
+                    : 'bg-white/5 text-white/60 border border-white/10 hover:border-white/30'}`}
+                >
+                  Sewa
+                </button>
+              </div>
+              {orderType === 'rent' && car.rentalPrice && (
+                <p className='mt-2 text-[10px] text-green-400'>
+                  Harga sewa: {car.rentalPrice}/hari
+                </p>
+              )}
+            </div>
+
+            <div className='flex justify-between items-center py-3 border-b border-white/5 text-xs'>
+              <span className='text-gray-500 uppercase tracking-wider'>
+                {orderType === 'rent' ? 'Rental Price' : 'Base Model Price'}
+              </span>
+              <span className='text-white font-mono'>
+                {orderType === 'rent' ? car.rentalPrice || 'N/A' : car.price}
+              </span>
             </div>
             <div className='flex justify-between items-center py-3 border-b border-white/5 text-xs'>
               <span className='text-gray-500 uppercase tracking-wider'>
@@ -230,6 +291,36 @@ function CheckoutContent () {
                 </div>
               </div>
             )}
+
+            {/* Art Modification Options */}
+            <div className='py-3 border-b border-white/5'>
+              <span className='text-gray-500 uppercase tracking-wider text-xs block mb-3'>
+                Modifikasi Seni (Opsional)
+              </span>
+              <div className='grid grid-cols-2 gap-2'>
+                {ART_MODIFICATIONS.map(art => (
+                  <button
+                    type='button'
+                    key={art.id}
+                    onClick={() => setArtModification(artModification === art.id ? null : art.id)}
+                    className={`p-3 text-left transition-all ${artModification === art.id
+                      ? 'bg-gold/20 border border-gold'
+                      : 'bg-white/5 border border-white/10 hover:border-white/30'}`}
+                  >
+                    <span className={`text-[10px] font-bold uppercase tracking-wider block ${artModification === art.id ? 'text-gold' : 'text-white'}`}>
+                      {art.name}
+                    </span>
+                    <span className='text-[9px] text-gray-500 block mt-1'>{art.desc}</span>
+                    <span className='text-[10px] text-green-400 mt-1 block'>{art.price}</span>
+                  </button>
+                ))}
+              </div>
+              {artModification && (
+                <p className='mt-2 text-[10px] text-gold'>
+                  ✓ {ART_MODIFICATIONS.find(a => a.id === artModification)?.name} dipilih
+                </p>
+              )}
+            </div>
 
             <div className='flex justify-between items-center py-3 border-b border-white/5 text-xs'>
               <span className='text-gray-500 uppercase tracking-wider'>
@@ -364,7 +455,7 @@ function CheckoutContent () {
 }
 
 // Komponen Utama yang diexport
-export default function CheckoutPage () {
+export default function CheckoutPage() {
   return (
     <>
       <Suspense

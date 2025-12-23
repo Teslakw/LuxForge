@@ -158,11 +158,15 @@ export default function RentalBookingPage() {
 
                             {/* Specs */}
                             <div className='grid grid-cols-3 gap-4 mb-8'>
-                                {[
+                                {(car.vehicleType === 'motorcycle' ? [
+                                    { label: 'Displacement', value: car.specs.engine },
+                                    { label: 'Power', value: car.specs.power },
+                                    { label: 'Top Speed', value: car.specs.speed }
+                                ] : [
                                     { label: 'Engine', value: car.specs.engine },
                                     { label: 'Power', value: car.specs.power },
                                     { label: 'Top Speed', value: car.specs.speed }
-                                ].map((spec, i) => (
+                                ]).map((spec, i) => (
                                     <div key={i} className='bg-white/5 p-4 text-center'>
                                         <div className='text-xs text-gray-500 uppercase tracking-widest mb-1'>{spec.label}</div>
                                         <div className='text-sm font-serif'>{spec.value}</div>
@@ -343,8 +347,8 @@ export default function RentalBookingPage() {
                                 type='submit'
                                 disabled={!car.availableForRent || rentalDetails.days === 0 || !agreed}
                                 className={`lux-button w-full py-5 font-bold uppercase tracking-[0.2em] transition-colors ${car.availableForRent && rentalDetails.days > 0 && agreed
-                                        ? 'bg-gold text-black hover:bg-white'
-                                        : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                                    ? 'bg-gold text-black hover:bg-white'
+                                    : 'bg-gray-800 text-gray-500 cursor-not-allowed'
                                     }`}
                             >
                                 {!car.availableForRent

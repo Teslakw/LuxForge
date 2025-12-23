@@ -1,0 +1,149 @@
+PRESENTATION TEXT - LUXFORGE WEBSITE
+
+=====================================
+ENGLISH VERSION
+=====================================
+
+Opening
+
+Good morning everyone. Today I would like to present LuxForge, a premium automotive website that I have developed. LuxForge is an online platform for a luxury automotive business located in Bali, Indonesia.
+
+
+Website Overview
+
+LuxForge website is designed with a premium and elegant dark theme. The design uses gold accents to give a luxurious impression. The website is responsive and works well on both desktop and mobile devices.
+
+Here is the outline of what LuxForge website offers. The website has a Homepage with hero banner and service categories. There is a Showroom for browsing and purchasing vehicles. There is a Rental system for booking vehicles with automatic price calculation. There is an Accessories store for automotive products. There is a Configure feature for vehicle customization. There is a Checkout system for completing orders. There is a Community page for automotive clubs. And there are About and Contact pages for company information.
+
+In summary, this website serves as a complete digital platform that connects customers with premium automotive services including sales, rental, customization, and community.
+
+
+Main Features of the Website
+
+The website has several main features.
+
+Number one is the Homepage. When users open the website, they see a beautiful hero section with rotating images of luxury vehicles. The hero section displays a tagline with phrases like Heritage Custom Performance and Bespoke Engineering. Below the hero, users can see four main service categories displayed in an interactive card layout.
+
+Number two is the Showroom Page. This page displays all available vehicles for sale. Users can filter vehicles by brand such as Rolls Royce, Lamborghini, Ferrari, Porsche, Toyota, Honda, and others. Users can also filter by vehicle type including cars and motorcycles. Each vehicle card shows an image, name, price, and vehicle type. When users click on a vehicle, they see detailed specifications including engine type, horsepower, and top speed.
+
+Number three is the Rental Page. This page shows all vehicles available for rent. Users can filter by vehicle type such as cars or motorcycles. Each rental card displays the vehicle name, image, and daily rental price. The rental prices range from 100 thousand rupiah per day for scooters up to 35 million rupiah per day for hypercars.
+
+Number four is the Rental Booking Page. When users select a rental vehicle, they go to the booking page. Here users can select their pickup date and return date using a calendar interface. The system automatically calculates the rental duration in days. The system also calculates the total rental price. There are discounts for longer rentals. Users get a 10 percent discount for weekly rentals and a 20 percent discount for monthly rentals.
+
+Number five is the Accessories Page. This page displays premium automotive products and parts. Users can browse various accessories from global brands. Each product shows an image, name, price, and description. Users can click on products to see more details.
+
+Number six is the Configure Page. This is a unique feature where users can customize their vehicle. They can select different colors and see a preview of their configuration.
+
+Number seven is the Checkout Page. After selecting products or making a booking, users proceed to checkout. They fill in their personal information including full name, email address, and phone number. There is also a field for special requests or notes.
+
+Number eight is the Community Page. This page showcases automotive clubs that partner with LuxForge. It includes clubs like Dewata Rockers, HDCI Bali, BBMC, and QJRiders.
+
+Number nine is the About Page. This page provides information about the company, the team, and the company values.
+
+Number ten is the Contact Page. Users can find contact information and reach out to the company.
+
+
+User Flow on the Website
+
+Let me explain the typical user journey.
+
+Step one, users visit the homepage and see the hero banner with luxury vehicle images.
+
+Step two, users click Enter Showroom button to browse available vehicles.
+
+Step three, users can filter vehicles by brand or type to find what they want.
+
+Step four, users click on a vehicle to see detailed information and specifications.
+
+Step five, for rental, users select their dates and see the calculated price with any applicable discounts.
+
+Step six, users fill in the booking form with their personal details.
+
+Step seven, users submit their booking or order request.
+
+
+Technical Features
+
+The website uses modern web technology. It has smooth scroll animations that appear when users scroll down the page. The design uses a responsive grid layout that adapts to different screen sizes. The color scheme uses a dark background with gold and white accents for a premium look. The website has fast loading times and smooth transitions between pages.
+
+
+Closing
+
+In conclusion, LuxForge website provides a complete platform for luxury automotive services. The website has an elegant design with premium user experience. It offers features for vehicle sales, rental booking, accessories shopping, and community engagement.
+
+Thank you for your attention. Are there any questions?
+
+
+=====================================
+INDONESIAN TRANSLATION
+TERJEMAHAN BAHASA INDONESIA
+=====================================
+
+Pembukaan
+
+Selamat pagi semuanya. Hari ini saya ingin mempresentasikan LuxForge, sebuah website otomotif premium yang telah saya kembangkan. LuxForge adalah platform online untuk bisnis otomotif mewah yang berlokasi di Bali, Indonesia.
+
+
+Gambaran Website
+
+Website LuxForge dirancang dengan tema gelap yang premium dan elegan. Desainnya menggunakan aksen warna emas untuk memberikan kesan mewah. Website ini responsif dan bekerja dengan baik di perangkat desktop maupun mobile.
+
+Berikut adalah garis besar apa yang ditawarkan website LuxForge. Website memiliki Homepage dengan banner hero dan kategori layanan. Ada Showroom untuk melihat dan membeli kendaraan. Ada sistem Rental untuk booking kendaraan dengan perhitungan harga otomatis. Ada toko Aksesoris untuk produk otomotif. Ada fitur Configure untuk kustomisasi kendaraan. Ada sistem Checkout untuk menyelesaikan pesanan. Ada halaman Komunitas untuk klub otomotif. Dan ada halaman About dan Kontak untuk informasi perusahaan.
+
+Secara ringkas, website ini berfungsi sebagai platform digital lengkap yang menghubungkan pelanggan dengan layanan otomotif premium termasuk penjualan, rental, kustomisasi, dan komunitas.
+
+
+Fitur Utama Website
+
+Website ini memiliki beberapa fitur utama.
+
+Nomor satu adalah Halaman Utama. Ketika pengguna membuka website, mereka melihat bagian hero yang indah dengan gambar berputar kendaraan mewah. Bagian hero menampilkan tagline dengan frasa seperti Heritage Custom Performance dan Bespoke Engineering. Di bawah hero, pengguna dapat melihat empat kategori layanan utama yang ditampilkan dalam tata letak kartu interaktif.
+
+Nomor dua adalah Halaman Showroom. Halaman ini menampilkan semua kendaraan yang tersedia untuk dijual. Pengguna dapat menyaring kendaraan berdasarkan merek seperti Rolls Royce, Lamborghini, Ferrari, Porsche, Toyota, Honda, dan lainnya. Pengguna juga dapat menyaring berdasarkan jenis kendaraan termasuk mobil dan motor. Setiap kartu kendaraan menampilkan gambar, nama, harga, dan jenis kendaraan. Ketika pengguna mengklik kendaraan, mereka melihat spesifikasi detail termasuk jenis mesin, tenaga kuda, dan kecepatan maksimal.
+
+Nomor tiga adalah Halaman Rental. Halaman ini menampilkan semua kendaraan yang tersedia untuk disewa. Pengguna dapat menyaring berdasarkan jenis kendaraan seperti mobil atau motor. Setiap kartu rental menampilkan nama kendaraan, gambar, dan harga sewa harian. Harga rental berkisar dari 100 ribu rupiah per hari untuk skuter hingga 35 juta rupiah per hari untuk hypercar.
+
+Nomor empat adalah Halaman Booking Rental. Ketika pengguna memilih kendaraan rental, mereka pergi ke halaman booking. Di sini pengguna dapat memilih tanggal pengambilan dan tanggal pengembalian menggunakan tampilan kalender. Sistem secara otomatis menghitung durasi rental dalam hari. Sistem juga menghitung total harga rental. Ada diskon untuk rental lebih lama. Pengguna mendapat diskon 10 persen untuk rental mingguan dan diskon 20 persen untuk rental bulanan.
+
+Nomor lima adalah Halaman Aksesoris. Halaman ini menampilkan produk dan suku cadang otomotif premium. Pengguna dapat menelusuri berbagai aksesoris dari merek global. Setiap produk menampilkan gambar, nama, harga, dan deskripsi. Pengguna dapat mengklik produk untuk melihat detail lebih lanjut.
+
+Nomor enam adalah Halaman Configure. Ini adalah fitur unik di mana pengguna dapat mengkustomisasi kendaraan mereka. Mereka dapat memilih warna berbeda dan melihat pratinjau konfigurasi mereka.
+
+Nomor tujuh adalah Halaman Checkout. Setelah memilih produk atau membuat booking, pengguna melanjutkan ke checkout. Mereka mengisi informasi pribadi termasuk nama lengkap, alamat email, dan nomor telepon. Ada juga kolom untuk permintaan khusus atau catatan.
+
+Nomor delapan adalah Halaman Komunitas. Halaman ini menampilkan klub otomotif yang bermitra dengan LuxForge. Termasuk klub seperti Dewata Rockers, HDCI Bali, BBMC, dan QJRiders.
+
+Nomor sembilan adalah Halaman About. Halaman ini memberikan informasi tentang perusahaan, tim, dan nilai-nilai perusahaan.
+
+Nomor sepuluh adalah Halaman Kontak. Pengguna dapat menemukan informasi kontak dan menghubungi perusahaan.
+
+
+Alur Pengguna di Website
+
+Izinkan saya menjelaskan perjalanan pengguna yang umum.
+
+Langkah satu, pengguna mengunjungi halaman utama dan melihat banner hero dengan gambar kendaraan mewah.
+
+Langkah dua, pengguna mengklik tombol Enter Showroom untuk menelusuri kendaraan yang tersedia.
+
+Langkah tiga, pengguna dapat menyaring kendaraan berdasarkan merek atau jenis untuk menemukan yang mereka inginkan.
+
+Langkah empat, pengguna mengklik kendaraan untuk melihat informasi dan spesifikasi detail.
+
+Langkah lima, untuk rental, pengguna memilih tanggal mereka dan melihat harga yang dihitung dengan diskon yang berlaku.
+
+Langkah enam, pengguna mengisi formulir booking dengan detail pribadi mereka.
+
+Langkah tujuh, pengguna mengirimkan permintaan booking atau pesanan mereka.
+
+
+Fitur Teknis
+
+Website ini menggunakan teknologi web modern. Website memiliki animasi scroll halus yang muncul ketika pengguna menggulir halaman ke bawah. Desainnya menggunakan tata letak grid responsif yang menyesuaikan dengan ukuran layar berbeda. Skema warna menggunakan latar belakang gelap dengan aksen emas dan putih untuk tampilan premium. Website memiliki waktu loading cepat dan transisi halus antar halaman.
+
+
+Penutup
+
+Kesimpulannya, website LuxForge menyediakan platform lengkap untuk layanan otomotif mewah. Website memiliki desain elegan dengan pengalaman pengguna premium. Website menawarkan fitur untuk penjualan kendaraan, booking rental, belanja aksesoris, dan keterlibatan komunitas.
+
+Terima kasih atas perhatian Anda. Ada pertanyaan?

@@ -238,6 +238,160 @@ const PART_SECTIONS = [
 ]
 
 /* =========================
+   Configuration: MOTORCYCLE PART SECTIONS
+   Parts khusus untuk motor
+   ========================= */
+const MOTORCYCLE_PART_SECTIONS = [
+  {
+    key: 'wheels',
+    title: 'Velg Motor',
+    items: [
+      {
+        id: 'mwheel_spoke',
+        name: 'Spoke Wheel',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVQE8gXRVmCMFR7wKt7sQNNkGqCLZp8jn_aQ&s'
+      },
+      {
+        id: 'mwheel_alloy',
+        name: 'Alloy Cast Wheel',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxR8rKuKZ5rS7mVWq8fZHZRUBn5LpMGJhYdw&s'
+      },
+      {
+        id: 'mwheel_racing',
+        name: 'Racing Forged',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThiP8aWjXL9F2f6GKcEMCw5V8iKhDlMChxaw&s'
+      }
+    ]
+  },
+  {
+    key: 'tires',
+    title: 'Ban Motor',
+    items: [
+      {
+        id: 'mtire_street',
+        name: 'Street Tire',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4aRxH-8XJPvVPNlUKLRXJMZK-TslFm3kig&s'
+      },
+      {
+        id: 'mtire_sport',
+        name: 'Sport Tire',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8zFtC9cIvGxB9mZFvb4RCdmWfXKv6hATL5g&s'
+      },
+      {
+        id: 'mtire_offroad',
+        name: 'Off-road Tire',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDBfN4l6g4CrzKxDvxuwvrR-wLqMYnTRCVdA&s'
+      }
+    ]
+  },
+  {
+    key: 'exhaust',
+    title: 'Knalpot / Exhaust',
+    items: [
+      {
+        id: 'mexhaust_stock',
+        name: 'Stock Exhaust',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp4FWjQg6vEI8JWCqDxqFfJpSfBLQ8fz-UOA&s'
+      },
+      {
+        id: 'mexhaust_racing',
+        name: 'Racing Exhaust',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaR0_5vpEOYMJCYRMSvbSRrP-NjVPxPZT3wQ&s'
+      },
+      {
+        id: 'mexhaust_akrapovic',
+        name: 'Akrapovic Style',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3pF9T8G5KPQZqrpVdWKr7Xq35M6TdxHPYg&s'
+      }
+    ]
+  },
+  {
+    key: 'handlebar',
+    title: 'Stang / Handlebar',
+    items: [
+      {
+        id: 'mhandle_stock',
+        name: 'Stock Handlebar',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfKP5kFVPCZNjG3T7RvPLQ4mxjqNdkJYxP5g&s'
+      },
+      {
+        id: 'mhandle_clipon',
+        name: 'Clip-On Racing',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBHVLs8WZPHqOhzEPYJWvT3N-S5jVrNhFJpA&s'
+      },
+      {
+        id: 'mhandle_touring',
+        name: 'Touring Bar',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL9QKzBEH0wxW9BM8VL7rGkZJWgPjD3rrSYg&s'
+      }
+    ]
+  },
+  {
+    key: 'seat',
+    title: 'Jok / Seat',
+    items: [
+      {
+        id: 'mseat_stock',
+        name: 'Stock Seat',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPJnBc4N_FqfHV3VY2K6SFZY6LzLBHCgBWYQ&s'
+      },
+      {
+        id: 'mseat_racing',
+        name: 'Racing Flat Seat',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVW7GKZK5pG8PhR3VqZjPKBMJGZM9bDmWLXQ&s'
+      },
+      {
+        id: 'mseat_touring',
+        name: 'Comfort Touring',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2GW9VqYJZH0pVZLgNRVY8DK5WqZQJ4n3htg&s'
+      }
+    ]
+  },
+  {
+    key: 'windshield',
+    title: 'Windshield',
+    items: [
+      {
+        id: 'mwind_none',
+        name: 'No Windshield',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4qlNqT5HNRJ8xGjVr3xB6qLPLGM3DYHQ6Rg&s'
+      },
+      {
+        id: 'mwind_sport',
+        name: 'Sport Screen',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVT6qPDqLN5wZHJQvLR7GFCqfZGPvLZ--mDg&s'
+      },
+      {
+        id: 'mwind_touring',
+        name: 'Touring Windshield',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5VNPHJNRwNBkQXhRwHLZLqFb3G5QLPGJqw&s'
+      }
+    ]
+  },
+  {
+    key: 'lights',
+    title: 'Lampu',
+    items: [
+      {
+        id: 'mlight_stock',
+        name: 'Stock Lights',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRKLK7MTqPJYLqVPJqvXZp7NZq3p5Q9CNGJQ&s'
+      },
+      {
+        id: 'mlight_led',
+        name: 'LED Projector',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDT6HJpYLZJXFVvZQ4RDXVqf3GzPZKXPJ9qA&s'
+      },
+      {
+        id: 'mlight_custom',
+        name: 'Custom Angel Eyes',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq5DQXJNLRBWqKpVQ3GqLXhRPZ_LPZQrYbVw&s'
+      }
+    ]
+  }
+]
+
+/* =========================
    PartSelectionSection component
    - full-bleed images (no border-radius)
    - selected state highlight border + check icon
@@ -312,17 +466,32 @@ export default function ConfigurePage() {
   const [exteriorColor, setExteriorColor] = useState('#D92525')
   const [interiorColor, setInteriorColor] = useState('#2b2b2b')
 
+  const car = CAR_DATABASE.find(c => c.id === Number(params.id))
+  const isMotorcycle = car?.vehicleType === 'motorcycle'
+
+  // Use appropriate parts sections based on vehicle type
+  const ACTIVE_PART_SECTIONS = isMotorcycle ? MOTORCYCLE_PART_SECTIONS : PART_SECTIONS
+
   // dynamic selected map: key -> itemId | null
   const initialSelected = useMemo(() => {
     const map: Record<string, string | null> = {}
-    PART_SECTIONS.forEach(sec => {
+    ACTIVE_PART_SECTIONS.forEach(sec => {
       map[sec.key] = null
     })
     return map
-  }, [])
+  }, [isMotorcycle])
 
   const [selectedParts, setSelectedParts] =
     useState<Record<string, string | null>>(initialSelected)
+
+  // Reset selected parts when vehicle type changes
+  React.useEffect(() => {
+    const map: Record<string, string | null> = {}
+    ACTIVE_PART_SECTIONS.forEach(sec => {
+      map[sec.key] = null
+    })
+    setSelectedParts(map)
+  }, [isMotorcycle])
 
   // helper setter
   const setSelected = (sectionKey: string, itemId: string) => {
@@ -332,15 +501,14 @@ export default function ConfigurePage() {
     }))
   }
 
-  const car = CAR_DATABASE.find(c => c.id === Number(params.id))
-
   const handleProceed = () => {
     // send selectedParts as JSON in query param
     const payload = {
       exteriorColor,
       interiorColor,
       parts: selectedParts,
-      carId: car?.id ?? null
+      carId: car?.id ?? null,
+      vehicleType: car?.vehicleType ?? 'car'
     }
     const q = encodeURIComponent(JSON.stringify(payload))
     router.push(`/checkout?config=${q}`)
@@ -408,217 +576,352 @@ export default function ConfigurePage() {
           />
 
           <div className='relative w-full max-w-5xl z-10 transition-transform duration-500 hover:scale-[1.02]'>
-            {/* CAR SVG - PRESERVED LOGIC */}
-            <svg
-              viewBox='0 0 400 150'
-              className='w-full drop-shadow-[0_50px_60px_rgba(0,0,0,0.9)]'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <defs>
-                <linearGradient
-                  id='bodyShine'
-                  x1='0%'
-                  y1='0%'
-                  x2='0%'
-                  y2='100%'
-                >
-                  <stop offset='0%' stopColor='white' stopOpacity='0.5' />
-                  <stop offset='40%' stopColor='white' stopOpacity='0.1' />
-                  <stop offset='100%' stopColor='black' stopOpacity='0.4' />
-                </linearGradient>
-              </defs>
+            {/* Conditional SVG: Motorcycle or Car */}
+            {isMotorcycle ? (
+              /* MOTORCYCLE SVG */
+              <svg
+                viewBox='0 0 400 200'
+                className='w-full drop-shadow-[0_50px_60px_rgba(0,0,0,0.9)]'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <defs>
+                  <linearGradient id='motorShine' x1='0%' y1='0%' x2='0%' y2='100%'>
+                    <stop offset='0%' stopColor='white' stopOpacity='0.5' />
+                    <stop offset='40%' stopColor='white' stopOpacity='0.1' />
+                    <stop offset='100%' stopColor='black' stopOpacity='0.4' />
+                  </linearGradient>
+                </defs>
 
-              {/* shadow */}
-              <ellipse
-                cx='200'
-                cy='135'
-                rx='180'
-                ry='10'
-                fill='black'
-                style={{ filter: 'blur(12px)', opacity: 0.8 }}
-              />
+                {/* Shadow */}
+                <ellipse cx='200' cy='180' rx='140' ry='8' fill='black' style={{ filter: 'blur(10px)', opacity: 0.7 }} />
 
-              {/* car body */}
-              <path
-                d='M40,115 L70,115 L80,130 L120,130 L130,115 L270,115 L280,130 L320,130 L330,115 L390,105 C400,95 390,75 350,65 L290,45 L130,45 L70,65 C30,75 20,95 40,115 Z'
-                fill={exteriorColor}
-              />
-
-              {/* reflection */}
-              <path
-                d='M40,115 L390,105 C400,95 390,75 350,65 L290,45 L130,45 L70,65 C30,75 20,95 40,115 Z'
-                fill='url(#bodyShine)'
-                style={{ mixBlendMode: 'overlay' }}
-              />
-
-              {/* windows/interior fill */}
-              <path
-                d='M100,65 L260,65 L300,80 L140,80 Z'
-                fill={interiorColor}
-                opacity={0.12}
-              />
-
-              {/* Spoiler visual (if aerokit selection not 'aero_stock') */}
-              {selectedSpoiler && selectedSpoiler !== 'aero_stock' && (
-                <rect
-                  x='246'
-                  y='55'
-                  width='110'
-                  height={selectedSpoiler.includes('gt') ? 6 : 4}
-                  rx='1'
-                  fill={
-                    selectedSpoiler.includes('aero_sport') ? '#0b0b0b' : '#111'
-                  }
-                />
-              )}
-
-              {/* left wheel group */}
-              <g>
-                <circle cx='100' cy='115' r='23' fill='#111' stroke='#333' />
-                <circle
-                  cx='100'
-                  cy='115'
-                  r='18'
-                  fill='transparent'
-                  stroke='#555'
-                  strokeDasharray={
-                    tireVariantFromId(selectedTire) === 'track' ? '0' : '4 2'
-                  }
-                />
-                {/* hub */}
-                <circle
-                  cx='100'
-                  cy='115'
-                  r='8'
-                  fill={
-                    selectedBrake === 'brake_ceramic' ||
-                      selectedBrake === 'brake_ceramic'
-                      ? '#e11d1d'
-                      : '#111'
-                  }
-                  stroke='#333'
-                />
-                {/* spokes dynamic */}
-                {(() => {
-                  const variant = wheelVariantFromId(selectedWheel)
-                  const spokeCount =
-                    variant === 'carbon' ? 10 : variant === 'track' ? 6 : 8
-                  const spokeColor = variant === 'carbon' ? '#cfcfcf' : '#888'
-                  const spokes = []
-                  for (let i = 0; i < spokeCount; i++) {
-                    spokes.push(
-                      <line
-                        key={`lw-${i}`}
-                        x1={100}
-                        y1={115}
-                        x2={100}
-                        y2={95}
-                        stroke={spokeColor}
-                        strokeWidth={1.2}
-                        strokeLinecap='round'
-                        transform={`rotate(${(i * 360) / spokeCount} 100 115)`}
-                      />
-                    )
-                  }
-                  return <g>{spokes}</g>
-                })()}
-              </g>
-
-              {/* right wheel group (translated) */}
-              <g transform='translate(200,0)'>
-                <circle cx='100' cy='115' r='23' fill='#111' stroke='#333' />
-                <circle
-                  cx='100'
-                  cy='115'
-                  r='18'
-                  fill='transparent'
-                  stroke='#555'
-                  strokeDasharray={
-                    tireVariantFromId(selectedTire) === 'track' ? '0' : '4 2'
-                  }
-                />
-                <circle
-                  cx='100'
-                  cy='115'
-                  r='8'
-                  fill={selectedBrake === 'brake_ceramic' ? '#e11d1d' : '#111'}
-                  stroke='#333'
-                />
-                {(() => {
-                  const variant = wheelVariantFromId(selectedWheel)
-                  const spokeCount =
-                    variant === 'carbon' ? 10 : variant === 'track' ? 6 : 8
-                  const spokeColor = variant === 'carbon' ? '#cfcfcf' : '#888'
-                  const spokes = []
-                  for (let i = 0; i < spokeCount; i++) {
-                    spokes.push(
-                      <line
-                        key={`rw-${i}`}
-                        x1={100}
-                        y1={115}
-                        x2={100}
-                        y2={95}
-                        stroke={spokeColor}
-                        strokeWidth={1.2}
-                        strokeLinecap='round'
-                        transform={`rotate(${(i * 360) / spokeCount} 100 115)`}
-                      />
-                    )
-                  }
-                  return <g>{spokes}</g>
-                })()}
-              </g>
-
-              {/* exhaust visual (rear) */}
-              {selectedExhaust && selectedExhaust !== 'exhaust_stock' ? (
-                selectedExhaust.includes('sport') ? (
-                  <g>
-                    <rect
-                      x='334'
-                      y='98'
-                      width='14'
-                      height='7'
-                      rx='2'
-                      fill='#1f1f1f'
-                      stroke='#ccc'
-                      strokeWidth='0.8'
+                {/* Rear Wheel */}
+                <g>
+                  <circle cx='100' cy='150' r='35' fill='#111' stroke='#333' strokeWidth='2' />
+                  <circle cx='100' cy='150' r='28' fill='transparent' stroke='#555' strokeWidth='4' />
+                  <circle cx='100' cy='150' r='10' fill={selectedParts['wheels']?.includes('racing') ? '#cfcfcf' : '#222'} stroke='#444' />
+                  {/* Spokes */}
+                  {[...Array(selectedParts['wheels']?.includes('spoke') ? 16 : 6)].map((_, i) => (
+                    <line
+                      key={`rw-${i}`}
+                      x1={100} y1={150} x2={100} y2={120}
+                      stroke={selectedParts['wheels']?.includes('racing') ? '#cfcfcf' : '#666'}
+                      strokeWidth={selectedParts['wheels']?.includes('spoke') ? 1 : 2}
+                      transform={`rotate(${(i * 360) / (selectedParts['wheels']?.includes('spoke') ? 16 : 6)} 100 150)`}
                     />
-                    <rect
-                      x='320'
-                      y='98'
-                      width='6'
-                      height='6'
-                      rx='1'
-                      fill='#111'
+                  ))}
+                </g>
+
+                {/* Front Wheel */}
+                <g>
+                  <circle cx='300' cy='150' r='32' fill='#111' stroke='#333' strokeWidth='2' />
+                  <circle cx='300' cy='150' r='25' fill='transparent' stroke='#555' strokeWidth='4' />
+                  <circle cx='300' cy='150' r='8' fill={selectedParts['wheels']?.includes('racing') ? '#cfcfcf' : '#222'} stroke='#444' />
+                  {[...Array(selectedParts['wheels']?.includes('spoke') ? 14 : 6)].map((_, i) => (
+                    <line
+                      key={`fw-${i}`}
+                      x1={300} y1={150} x2={300} y2={122}
+                      stroke={selectedParts['wheels']?.includes('racing') ? '#cfcfcf' : '#666'}
+                      strokeWidth={selectedParts['wheels']?.includes('spoke') ? 1 : 2}
+                      transform={`rotate(${(i * 360) / (selectedParts['wheels']?.includes('spoke') ? 14 : 6)} 300 150)`}
                     />
-                  </g>
+                  ))}
+                </g>
+
+                {/* Swing Arm */}
+                <path d='M100,150 L170,130 L175,140 L105,155 Z' fill='#1a1a1a' />
+
+                {/* Engine Block */}
+                <rect x='140' y='130' width='50' height='35' rx='3' fill='#1f1f1f' stroke='#333' />
+                <rect x='145' y='135' width='15' height='10' fill='#333' />
+
+                {/* Frame */}
+                <path d='M170,130 L200,70 L270,60 L300,118' stroke='#333' strokeWidth='6' fill='none' />
+                <path d='M170,130 L200,80 L220,80' stroke='#444' strokeWidth='4' fill='none' />
+
+                {/* Fuel Tank */}
+                <ellipse cx='215' cy='75' rx='35' ry='18' fill={exteriorColor} />
+                <ellipse cx='215' cy='75' rx='35' ry='18' fill='url(#motorShine)' style={{ mixBlendMode: 'overlay' }} />
+
+                {/* Seat */}
+                <path
+                  d={selectedParts['seat']?.includes('racing')
+                    ? 'M180,78 Q200,65 240,72 L245,82 Q220,78 180,85 Z'
+                    : 'M175,82 Q200,65 250,70 L255,88 Q220,80 175,92 Z'
+                  }
+                  fill={selectedParts['seat']?.includes('touring') ? '#3d2b1f' : '#1a1a1a'}
+                />
+
+                {/* Front Fork */}
+                <line x1='270' y1='68' x2='300' y2='118' stroke='#555' strokeWidth='6' />
+                <line x1='280' y1='68' x2='305' y2='118' stroke='#444' strokeWidth='4' />
+
+                {/* Handlebar */}
+                <path
+                  d={selectedParts['handlebar']?.includes('clipon')
+                    ? 'M258,55 L250,50 M270,52 L278,48'
+                    : selectedParts['handlebar']?.includes('touring')
+                      ? 'M255,48 L240,40 L235,42 M275,45 L290,38 L295,40'
+                      : 'M260,52 L250,48 M272,50 L282,46'
+                  }
+                  stroke='#666'
+                  strokeWidth={selectedParts['handlebar']?.includes('touring') ? 4 : 3}
+                  strokeLinecap='round'
+                  fill='none'
+                />
+
+                {/* Headlight */}
+                <ellipse cx='295' cy='72' rx='8' ry='10' fill={selectedParts['lights']?.includes('led') ? '#ffffcc' : '#888'} stroke='#333' />
+                {selectedParts['lights']?.includes('led') && (
+                  <ellipse cx='295' cy='72' rx='5' ry='7' fill='#fff' opacity='0.8' />
+                )}
+
+                {/* Windshield */}
+                {selectedParts['windshield'] && !selectedParts['windshield'].includes('none') && (
+                  <path
+                    d={selectedParts['windshield']?.includes('touring')
+                      ? 'M270,62 Q280,30 295,30 Q310,30 325,62'
+                      : 'M275,60 Q285,45 300,45 Q315,45 320,60'
+                    }
+                    fill='rgba(100,100,100,0.3)'
+                    stroke='#555'
+                    strokeWidth='1'
+                  />
+                )}
+
+                {/* Exhaust */}
+                <path
+                  d={selectedParts['exhaust']?.includes('akrapovic')
+                    ? 'M145,160 L80,165 L75,175 L70,175 L65,172 L60,175'
+                    : selectedParts['exhaust']?.includes('racing')
+                      ? 'M145,160 L85,170 L75,172 L60,175'
+                      : 'M145,158 L90,165 L85,165'
+                  }
+                  stroke={selectedParts['exhaust']?.includes('akrapovic') ? '#b8b8b8' : '#444'}
+                  strokeWidth={selectedParts['exhaust']?.includes('racing') ? 6 : 4}
+                  strokeLinecap='round'
+                  fill='none'
+                />
+                {selectedParts['exhaust']?.includes('akrapovic') && (
+                  <ellipse cx='60' cy='174' rx='8' ry='5' fill='#222' stroke='#b8b8b8' strokeWidth='1' />
+                )}
+
+                {/* Tail Light */}
+                <rect x='165' y='88' width='8' height='4' rx='1' fill='#aa0000' />
+              </svg>
+            ) : (
+              /* CAR SVG - PRESERVED LOGIC */
+              <svg
+                viewBox='0 0 400 150'
+                className='w-full drop-shadow-[0_50px_60px_rgba(0,0,0,0.9)]'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <defs>
+                  <linearGradient
+                    id='bodyShine'
+                    x1='0%'
+                    y1='0%'
+                    x2='0%'
+                    y2='100%'
+                  >
+                    <stop offset='0%' stopColor='white' stopOpacity='0.5' />
+                    <stop offset='40%' stopColor='white' stopOpacity='0.1' />
+                    <stop offset='100%' stopColor='black' stopOpacity='0.4' />
+                  </linearGradient>
+                </defs>
+
+                {/* shadow */}
+                <ellipse
+                  cx='200'
+                  cy='135'
+                  rx='180'
+                  ry='10'
+                  fill='black'
+                  style={{ filter: 'blur(12px)', opacity: 0.8 }}
+                />
+
+                {/* car body */}
+                <path
+                  d='M40,115 L70,115 L80,130 L120,130 L130,115 L270,115 L280,130 L320,130 L330,115 L390,105 C400,95 390,75 350,65 L290,45 L130,45 L70,65 C30,75 20,95 40,115 Z'
+                  fill={exteriorColor}
+                />
+
+                {/* reflection */}
+                <path
+                  d='M40,115 L390,105 C400,95 390,75 350,65 L290,45 L130,45 L70,65 C30,75 20,95 40,115 Z'
+                  fill='url(#bodyShine)'
+                  style={{ mixBlendMode: 'overlay' }}
+                />
+
+                {/* windows/interior fill */}
+                <path
+                  d='M100,65 L260,65 L300,80 L140,80 Z'
+                  fill={interiorColor}
+                  opacity={0.12}
+                />
+
+                {/* Spoiler visual (if aerokit selection not 'aero_stock') */}
+                {selectedSpoiler && selectedSpoiler !== 'aero_stock' && (
+                  <rect
+                    x='246'
+                    y='55'
+                    width='110'
+                    height={selectedSpoiler.includes('gt') ? 6 : 4}
+                    rx='1'
+                    fill={
+                      selectedSpoiler.includes('aero_sport') ? '#0b0b0b' : '#111'
+                    }
+                  />
+                )}
+
+                {/* left wheel group */}
+                <g>
+                  <circle cx='100' cy='115' r='23' fill='#111' stroke='#333' />
+                  <circle
+                    cx='100'
+                    cy='115'
+                    r='18'
+                    fill='transparent'
+                    stroke='#555'
+                    strokeDasharray={
+                      tireVariantFromId(selectedTire) === 'track' ? '0' : '4 2'
+                    }
+                  />
+                  {/* hub */}
+                  <circle
+                    cx='100'
+                    cy='115'
+                    r='8'
+                    fill={
+                      selectedBrake === 'brake_ceramic' ||
+                        selectedBrake === 'brake_ceramic'
+                        ? '#e11d1d'
+                        : '#111'
+                    }
+                    stroke='#333'
+                  />
+                  {/* spokes dynamic */}
+                  {(() => {
+                    const variant = wheelVariantFromId(selectedWheel)
+                    const spokeCount =
+                      variant === 'carbon' ? 10 : variant === 'track' ? 6 : 8
+                    const spokeColor = variant === 'carbon' ? '#cfcfcf' : '#888'
+                    const spokes = []
+                    for (let i = 0; i < spokeCount; i++) {
+                      spokes.push(
+                        <line
+                          key={`lw-${i}`}
+                          x1={100}
+                          y1={115}
+                          x2={100}
+                          y2={95}
+                          stroke={spokeColor}
+                          strokeWidth={1.2}
+                          strokeLinecap='round'
+                          transform={`rotate(${(i * 360) / spokeCount} 100 115)`}
+                        />
+                      )
+                    }
+                    return <g>{spokes}</g>
+                  })()}
+                </g>
+
+                {/* right wheel group (translated) */}
+                <g transform='translate(200,0)'>
+                  <circle cx='100' cy='115' r='23' fill='#111' stroke='#333' />
+                  <circle
+                    cx='100'
+                    cy='115'
+                    r='18'
+                    fill='transparent'
+                    stroke='#555'
+                    strokeDasharray={
+                      tireVariantFromId(selectedTire) === 'track' ? '0' : '4 2'
+                    }
+                  />
+                  <circle
+                    cx='100'
+                    cy='115'
+                    r='8'
+                    fill={selectedBrake === 'brake_ceramic' ? '#e11d1d' : '#111'}
+                    stroke='#333'
+                  />
+                  {(() => {
+                    const variant = wheelVariantFromId(selectedWheel)
+                    const spokeCount =
+                      variant === 'carbon' ? 10 : variant === 'track' ? 6 : 8
+                    const spokeColor = variant === 'carbon' ? '#cfcfcf' : '#888'
+                    const spokes = []
+                    for (let i = 0; i < spokeCount; i++) {
+                      spokes.push(
+                        <line
+                          key={`rw-${i}`}
+                          x1={100}
+                          y1={115}
+                          x2={100}
+                          y2={95}
+                          stroke={spokeColor}
+                          strokeWidth={1.2}
+                          strokeLinecap='round'
+                          transform={`rotate(${(i * 360) / spokeCount} 100 115)`}
+                        />
+                      )
+                    }
+                    return <g>{spokes}</g>
+                  })()}
+                </g>
+
+                {/* exhaust visual (rear) */}
+                {selectedExhaust && selectedExhaust !== 'exhaust_stock' ? (
+                  selectedExhaust.includes('sport') ? (
+                    <g>
+                      <rect
+                        x='334'
+                        y='98'
+                        width='14'
+                        height='7'
+                        rx='2'
+                        fill='#1f1f1f'
+                        stroke='#ccc'
+                        strokeWidth='0.8'
+                      />
+                      <rect
+                        x='320'
+                        y='98'
+                        width='6'
+                        height='6'
+                        rx='1'
+                        fill='#111'
+                      />
+                    </g>
+                  ) : (
+                    <g>
+                      <rect
+                        x='328'
+                        y='96'
+                        width='20'
+                        height='8'
+                        rx='2'
+                        fill='#000'
+                        stroke='#999'
+                        strokeWidth='1'
+                      />
+                    </g>
+                  )
                 ) : (
                   <g>
                     <rect
-                      x='328'
-                      y='96'
-                      width='20'
-                      height='8'
-                      rx='2'
-                      fill='#000'
-                      stroke='#999'
-                      strokeWidth='1'
+                      x='338'
+                      y='100'
+                      width='8'
+                      height='6'
+                      rx='1'
+                      fill='#333'
                     />
                   </g>
-                )
-              ) : (
-                <g>
-                  <rect
-                    x='338'
-                    y='100'
-                    width='8'
-                    height='6'
-                    rx='1'
-                    fill='#333'
-                  />
-                </g>
-              )}
-            </svg>
+                )}
+              </svg>
+            )}
 
             <h2 className='text-center mt-12 text-6xl font-serif text-white/10 uppercase tracking-[0.5em] select-none'>
               {car.name.split(' ')[0]}
@@ -667,8 +970,10 @@ export default function ConfigurePage() {
 
             {/* Parts Selection */}
             <div>
-              <span className='text-white/50 font-industrial text-xs tracking-[0.3em] font-bold block mb-8 uppercase'>Aftermarket Parts</span>
-              {PART_SECTIONS.map(section => (
+              <span className='text-white/50 font-industrial text-xs tracking-[0.3em] font-bold block mb-8 uppercase'>
+                {isMotorcycle ? 'Motorcycle Parts' : 'Aftermarket Parts'}
+              </span>
+              {ACTIVE_PART_SECTIONS.map(section => (
                 <PartSelectionSection
                   key={section.key}
                   title={section.title}
