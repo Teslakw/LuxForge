@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
-  title: 'LuxForge | Bespoke Automotive',
+  title: 'LocalForge | Automotive For Everyone',
   description: 'Premium Supercar Marketplace'
 }
 

@@ -60,7 +60,7 @@ export default function ContactPage() {
                             {[
                                 { icon: MapPin, title: 'Studio Location', content: 'Jl. Sunset Road No. 88\nSeminyak, Bali 80361' },
                                 { icon: Phone, title: 'Phone', content: '+62 361 123 4567' },
-                                { icon: Mail, title: 'Email', content: 'hello@luxforge.id' },
+                                { icon: Mail, title: 'Email', content: 'hello@localforge.id' },
                                 { icon: Clock, title: 'Hours', content: 'Mon - Sat: 9:00 AM - 6:00 PM\nSunday: By Appointment' }
                             ].map((item, i) => (
                                 <div key={i} className='flex items-start gap-6 group'>
@@ -163,7 +163,7 @@ export default function ContactPage() {
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            title="LuxForge Location"
+                            title="LocalForge Location"
                         ></iframe>
                     </div>
                     <div className='mt-6 flex flex-wrap justify-center gap-8 text-center'>

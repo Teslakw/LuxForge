@@ -36,8 +36,8 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/showroom', label: 'Showroom' },
     { href: '/rental', label: 'Rental' },
-    { href: '/custom-works', label: 'Custom Works' },
     { href: '/accessories', label: 'Accessories' },
+    { href: '/workshop', label: 'Workshop' },
     { href: '/community', label: 'Community' },
     { href: '/events', label: 'Events' },
     { href: '/about', label: 'About' },
@@ -48,7 +48,7 @@ export default function Navbar() {
     <nav className='fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 text-white'>
       <Link href='/' className='cursor-pointer group'>
         <h1 className='text-3xl font-serif font-bold tracking-[0.1em] group-hover:text-gold transition-colors duration-500'>
-          LUX<span className='font-light text-gray-400 group-hover:text-white transition-colors'>FORGE</span>
+          LOCAL<span className='font-light text-gray-400 group-hover:text-white transition-colors'>FORGE</span>
         </h1>
       </Link>
 

@@ -18,10 +18,10 @@ const events = [
     },
     {
         id: 2,
-        title: 'LuxForge Annual Meet',
+        title: 'LocalForge Annual Meet',
         date: 'Saturday, 15th November 2024',
         time: '2:00 PM - 10:00 PM',
-        location: 'LuxForge Studio, Seminyak',
+        location: 'LocalForge Studio, Seminyak',
         description: 'Our biggest event of the year. Custom builds showcase, live music, and networking with the brotherhood.',
         image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200',
         spots: 200, registered: 156
@@ -166,7 +166,7 @@ export default function EventsPage() {
                     </AnimateOnScroll>
                     <AnimateOnScroll animation='fade-up' delay={0.1}>
                         <p className='text-gray-400 text-lg mb-10'>
-                            Partner with LuxForge to organize your club's next ride or gathering.
+                            Partner with LocalForge to organize your club's next ride or gathering.
                             We provide the venue, logistics, and community reach.
                         </p>
                     </AnimateOnScroll>

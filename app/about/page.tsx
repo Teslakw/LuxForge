@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className='absolute inset-0'>
           <img
             src='https://images.unsplash.com/photo-1558618047-f4b511ce5ad6?q=80&w=1920'
-            alt='LuxForge Workshop'
+            alt='LocalForge Workshop'
             className='w-full h-full object-cover opacity-30'
           />
           <div className='absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent' />
@@ -38,7 +38,7 @@ export default function AboutPage() {
             <span className='text-gold font-industrial text-xs tracking-[0.3em] font-bold block mb-4'>Est. 2020</span>
           </AnimateOnScroll>
           <AnimateOnScroll animation='fade-up' delay={0.1}>
-            <h1 className='text-5xl md:text-8xl font-serif mb-6'>About LuxForge</h1>
+            <h1 className='text-5xl md:text-8xl font-serif mb-6'>About LocalForge</h1>
           </AnimateOnScroll>
           <AnimateOnScroll animation='fade' delay={0.2}>
             <div className='h-1 w-32 bg-gold' />
@@ -55,7 +55,7 @@ export default function AboutPage() {
               Where Passion Meets <span className='text-gold'>Precision</span>
             </h2>
             <p className='text-gray-400 text-lg leading-relaxed mb-6'>
-              LuxForge was born from a simple belief: every machine deserves to be extraordinary.
+              LocalForge was born from a simple belief: every machine deserves to be extraordinary.
               Founded in Bali by automotive enthusiasts, we've grown into Indonesia's premier
               destination for luxury vehicle curation and bespoke customization.
             </p>

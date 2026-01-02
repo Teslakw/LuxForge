@@ -218,7 +218,7 @@ export default function RentalPage() {
             <AnimatedSection className='px-6 md:px-24 py-24 bg-white/[0.02] border-y border-white/5'>
                 <AnimateOnScroll animation='fade-up' className='text-center mb-16'>
                     <span className='text-gold font-industrial text-xs tracking-[0.3em] font-bold block mb-4'>Why Rent With Us</span>
-                    <h2 className='text-3xl md:text-5xl font-serif'>The LuxForge Experience</h2>
+                    <h2 className='text-3xl md:text-5xl font-serif'>The LocalForge Experience</h2>
                 </AnimateOnScroll>
 
                 <div className='grid md:grid-cols-4 gap-8'>

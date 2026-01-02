@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h3 className='text-gold font-industrial uppercase tracking-widest text-xs font-bold mb-6'>Connect</h3>
             <ul className='space-y-4 text-sm text-gray-400'>
-              <li><a href='mailto:concierge@luxforge.id' className='hover:text-white transition-colors'>concierge@luxforge.id</a></li>
+              <li><a href='mailto:concierge@localforge.id' className='hover:text-white transition-colors'>concierge@localforge.id</a></li>
               <li><span className='block text-xs uppercase tracking-wider text-gray-600 mt-2'>Studio</span>
                 Coming Soon<br />Denpasar, Bali
               </li>
@@ -64,7 +64,7 @@ export default function Footer() {
       </div>
 
       <div className='px-6 md:px-16 py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-600 uppercase tracking-widest font-industrial'>
-        <span>© {new Date().getFullYear()} LuxForge Automotive. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} LocalForge Automotive. All rights reserved.</span>
         <div className='flex gap-8 mt-4 md:mt-0'>
           <Link href='/privacy' className='hover:text-gray-400'>Privacy Policy</Link>
           <Link href='/terms' className='hover:text-gray-400'>Terms of Service</Link>

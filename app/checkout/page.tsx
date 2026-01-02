@@ -10,7 +10,8 @@ import {
   Loader2,
   ArrowLeft,
   ShieldCheck,
-  CreditCard
+  Send,
+  AlertCircle
 } from 'lucide-react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
@@ -160,10 +161,11 @@ function CheckoutContent() {
           </Link>
 
           <div className='mt-12 mb-8'>
+            <span className='text-[10px] text-gold font-industrial uppercase tracking-widest block mb-2'>Request Application</span>
             <h1 className='text-3xl font-serif text-white mb-2 uppercase leading-none'>
               {car.name}
             </h1>
-            <p className='text-gray-500 font-mono text-sm'>{car.price}</p>
+            <p className='text-gray-500 font-mono text-sm'>Estimasi mulai dari {car.price}</p>
           </div>
 
           {/* Preview Mobil */}
@@ -247,12 +249,13 @@ function CheckoutContent() {
 
             <div className='flex justify-between items-center py-3 border-b border-white/5 text-xs'>
               <span className='text-gray-500 uppercase tracking-wider'>
-                {orderType === 'rent' ? 'Rental Price' : 'Base Model Price'}
+                {orderType === 'rent' ? 'Estimasi Sewa' : 'Estimasi Harga'}
               </span>
               <span className='text-white font-mono'>
-                {orderType === 'rent' ? car.rentalPrice || 'N/A' : car.price}
+                {orderType === 'rent' ? car.rentalPrice || 'N/A' : car.price}*
               </span>
             </div>
+            <p className='text-[9px] text-gray-600 italic py-2'>*Harga final akan ditentukan saat kunjungan ke showroom</p>
             <div className='flex justify-between items-center py-3 border-b border-white/5 text-xs'>
               <span className='text-gray-500 uppercase tracking-wider'>
                 Custom Paint
@@ -328,15 +331,27 @@ function CheckoutContent() {
               </span>
               <span className='text-white font-mono'>CALCULATED</span>
             </div>
-            <div className='mt-8 p-4 bg-white/5 border border-white/10 flex gap-4 items-start'>
+            {/* Important Notice */}
+            <div className='mt-8 p-4 bg-amber-500/10 border border-amber-500/30 flex gap-4 items-start'>
+              <AlertCircle className='text-amber-400 shrink-0' size={20} />
+              <div>
+                <h4 className='text-amber-400 text-xs font-bold uppercase mb-1'>
+                  Ini Bukan Transaksi Final
+                </h4>
+                <p className='text-gray-400 text-[10px] leading-relaxed'>
+                  Form ini adalah permintaan awal. Setelah kami review, Anda akan menerima konfirmasi via email untuk mengunjungi showroom dan membuat kesepakatan final.
+                </p>
+              </div>
+            </div>
+
+            <div className='mt-4 p-4 bg-white/5 border border-white/10 flex gap-4 items-start'>
               <ShieldCheck className='text-emerald-500 shrink-0' size={20} />
               <div>
                 <h4 className='text-white text-xs font-bold uppercase mb-1'>
-                  Secure Transaction
+                  Proses Aman & Transparan
                 </h4>
                 <p className='text-gray-500 text-[10px] leading-relaxed'>
-                  Pembayaran Anda dilindungi oleh Escrow LuxForge. Dana hanya
-                  diteruskan ke dealer setelah inspeksi fisik selesai.
+                  Tidak ada pembayaran sampai Anda bertemu tim kami di showroom dan sepakat dengan harga final.
                 </p>
               </div>
             </div>
@@ -348,11 +363,28 @@ function CheckoutContent() {
         {/* ======================= */}
         <div className='lg:col-span-7 p-8 md:p-12 bg-black'>
           <h3 className='text-xl font-serif text-white mb-2 uppercase'>
-            Concierge Application
+            Form Permintaan
           </h3>
-          <p className='text-gray-500 text-xs mb-10'>
-            Please complete your profile to request an allocation.
+          <p className='text-gray-500 text-xs mb-6'>
+            Lengkapi data Anda untuk mengajukan permintaan. Tim kami akan menghubungi Anda dalam 1x24 jam.
           </p>
+
+          {/* Process Steps */}
+          <div className='grid grid-cols-4 gap-2 mb-10'>
+            {[
+              { num: '1', label: 'Isi Form' },
+              { num: '2', label: 'Review' },
+              { num: '3', label: 'Kunjungi' },
+              { num: '4', label: 'Deal' }
+            ].map((step, i) => (
+              <div key={i} className='text-center'>
+                <div className={`w-8 h-8 mx-auto rounded-full flex items-center justify-center text-xs font-bold ${i === 0 ? 'bg-gold text-black' : 'bg-white/10 text-white/50'}`}>
+                  {step.num}
+                </div>
+                <p className='text-[9px] text-gray-500 mt-1 uppercase'>{step.label}</p>
+              </div>
+            ))}
+          </div>
 
           <form onSubmit={handleSubmit} className='space-y-8'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
@@ -402,7 +434,7 @@ function CheckoutContent() {
                   required
                   type='email'
                   className='bg-transparent w-full text-white outline-none text-sm placeholder-gray-700'
-                  placeholder='CLIENT@LUXFORGE.ID'
+                  placeholder='CLIENT@LOCALFORGE.ID'
                   onChange={e =>
                     setFormData({ ...formData, email: e.target.value })
                   }
@@ -439,12 +471,15 @@ function CheckoutContent() {
                   </>
                 ) : (
                   <>
-                    Submit Application <CreditCard size={16} />
+                    Kirim Permintaan <Send size={16} />
                   </>
                 )}
               </button>
               <p className='text-center text-[10px] text-gray-600 mt-4 uppercase tracking-wider'>
-                By clicking submit, you agree to LuxForge Privacy Policy.
+                Dengan mengirim form, Anda setuju dengan Privacy Policy LocalForge.
+              </p>
+              <p className='text-center text-[10px] text-amber-500/80 mt-2'>
+                ⚠️ Ini bukan pembayaran. Harga final ditentukan di showroom.
               </p>
             </div>
           </form>
@@ -461,8 +496,7 @@ export default function CheckoutPage() {
       <Suspense
         fallback={
           <div className='min-h-screen bg-black flex items-center justify-center text-white'>
-            <Loader2 className='animate-spin mr-2' /> Initializing Secure
-            Checkout...
+            <Loader2 className='animate-spin mr-2' /> Memuat Form Permintaan...
           </div>
         }
       >

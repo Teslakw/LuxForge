@@ -36,7 +36,7 @@ export default function Community() {
                     </AnimateOnScroll>
                     <AnimateOnScroll animation='fade-up' delay={0.2}>
                         <p className='text-xl text-gray-400 max-w-2xl leading-relaxed'>
-                            LuxForge serves as the sanctum for Indonesia's most respected automotive tribes.
+                            LocalForge serves as the sanctum for Indonesia's most respected automotive tribes.
                             We honor <span className='text-white'>the code of the road</span> and the bond of the machine.
                         </p>
                     </AnimateOnScroll>

@@ -9,18 +9,18 @@ import { AnimateOnScroll, AnimatedSection } from '@/components/AnimateOnScroll'
 const slides = [
   {
     image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1920&auto=format&fit=crop',
-    heading: 'Heritage. Custom. Performance.',
-    subheading: 'The intersection of automotive luxury and industrial craftsmanship.'
+    heading: 'Mobil. Motor. Semua Kalangan.',
+    subheading: 'Dari kendaraan harian hingga supercar, kami siap melayani kebutuhan Anda.'
   },
   {
     image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1920&auto=format&fit=crop',
-    heading: 'Bespoke Engineering',
-    subheading: 'Where vision meets precision. Tailored for the connoisseur.'
+    heading: 'Custom & Modifikasi',
+    subheading: 'Bengkel resmi dengan sertifikasi brand untuk semua jenis kendaraan.'
   },
   {
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920&auto=format&fit=crop',
-    heading: 'The Inner Circle',
-    subheading: "Exclusive access to Indonesia's elite automotive communities."
+    heading: 'Komunitas Otomotif',
+    subheading: 'Bergabung dengan komunitas otomotif terbesar di Indonesia.'
   }
 ]
 
@@ -34,10 +34,10 @@ const communities = [
 
 // Services Data
 const services = [
-  { title: 'Sales & Rental', icon: Car, desc: 'Premium luxury vehicles and superbikes for ownership or exclusive experiences.', link: '/showroom' },
-  { title: 'Custom Works', icon: Wrench, desc: 'Artistic modification and performance tuning for the discerning enthusiast.', link: '/custom-works' },
-  { title: 'Parts & Gear', icon: Hexagon, desc: 'Curated accessories and performance parts from top global brands.', link: '/accessories' },
-  { title: 'Community', icon: Users, desc: "A hub for Bali's most prestigious automotive clubs and gatherings.", link: '/community' }
+  { title: 'Jual & Sewa', icon: Car, desc: 'Mobil dan motor untuk dimiliki atau disewa, dari harian hingga premium.', link: '/showroom' },
+  { title: 'Custom Works', icon: Wrench, desc: 'Modifikasi dan tuning di bengkel resmi bersertifikasi.', link: '/workshop' },
+  { title: 'Parts & Gear', icon: Hexagon, desc: 'Aksesoris performa dan seni lokal Indonesia.', link: '/accessories' },
+  { title: 'Komunitas', icon: Users, desc: 'Hub komunitas otomotif dan event di seluruh Indonesia.', link: '/community' }
 ]
 
 export default function Home() {
@@ -118,6 +118,31 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
+      {/* WORKSHOP TEASER */}
+      <AnimatedSection className='py-16 px-6 md:px-16 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 border-y border-white/5'>
+        <div className='max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8'>
+          <AnimateOnScroll animation='fade-up' className='flex-1'>
+            <span className='text-gold font-industrial uppercase tracking-[0.3em] text-xs font-bold'>Certified Workshop</span>
+            <h3 className='text-2xl md:text-3xl font-serif mt-2 mb-4'>We Have Our Own Garage</h3>
+            <p className='text-gray-400 text-sm leading-relaxed mb-6'>
+              Licensed by Ferrari, Porsche, Lamborghini, and more. From simple touch-ups to full builds, our team handles it all.
+            </p>
+            <Link href='/workshop' className='inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-widest hover:text-white transition-colors'>
+              Visit Workshop <ArrowRight size={14} />
+            </Link>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation='fade-up' delay={0.2} className='w-full md:w-1/3'>
+            <div className='relative aspect-[4/3] overflow-hidden border border-white/10'>
+              <img
+                src='https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600'
+                alt='LocalForge Workshop'
+                className='w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500'
+              />
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </AnimatedSection>
+
       {/* 3. HOW IT WORKS */}
       <AnimatedSection className='py-24 px-6 md:px-16 bg-[#050505] relative'>
         <div className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent' />
@@ -182,7 +207,7 @@ export default function Home() {
             <AnimateOnScroll animation='fade-left' className='max-w-2xl'>
               <h2 className='text-4xl md:text-6xl font-serif mb-4'>The Inner Circle</h2>
               <p className='text-gray-400 text-lg'>
-                LuxForge is more than a workshop. It is the beating heart of Bali's elite automotive culture.
+                LocalForge is more than a workshop. It is the beating heart of Bali's elite automotive culture.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll animation='fade-right' delay={0.2}>
